@@ -11,3 +11,7 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import "bootstrap";
+import '@fortawesome/fontawesome-free/js/all';
+import "../stylesheets/application.scss";
