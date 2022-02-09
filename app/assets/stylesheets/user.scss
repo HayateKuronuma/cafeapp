@@ -1,0 +1,42 @@
+@mixin backgroundimg($imgpath) {
+  background: url($imgpath) no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+.main-wrapper {
+  display: flex;
+  .split-column {
+    height: 100vh;
+    width: 100%;
+  }
+  .left-column {
+    @include backgroundimg("/signup-left.jpg");
+  }
+  .right-column {
+    @include backgroundimg("/signup-right.jpg");
+  }
+}
+
+.form-wrapper {
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: rgba(240, 249, 255, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 6px;
+  box-shadow: 4px 3px 12px 1px rgba(0, 0, 0, 0.75);
+  .new_user {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .field {
+    margin: 0 auto 10px auto;
+    width: 100%;
+  }
+}
+
+.guest-login-wrapper {
+  text-align: center;
+}
