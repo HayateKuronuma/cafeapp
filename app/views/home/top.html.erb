@@ -1,2 +1,74 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="container">
+  <h2>gmap</h2>
+  <div id='map'></div>
+  <div class="status"></div>
+  <button type="button" class="serchbtn btn btn-primary">現在地周辺のワンちゃんと行ける飲食店を検索</button>
+  <div id="show_result"></div>
+</div>
+<script>
+  const status = document.querySelector(".status");
+  function initMap(){
+    let map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.6896385, lng: 139.689912},
+      zoom: 16
+    });
+  }
+  $(function(){
+    $('.serchbtn').on('click', function(){
+      // LatLngに位置座標を代入
+      if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback, option);
+        status.textContent = "Locating…";
+      }else{
+        message = 'ご使用中のブラウザは現在地検索に対応しておりません。'
+        alert('warning', message)
+      }
+      function successCallback(position) {
+      // LatLngに位置座標を代入
+        LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        status.textContent = "";
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: LatLng,
+          zoom: 16
+        });
+        let marker = new google.maps.Marker({
+          position: LatLng,
+          map: map
+        });
+        $.ajax({
+          url: "around_shops",
+          type: "GET",
+          dataType: "html",
+          async: true,
+          data: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          },
+        }).done(function(result) {
+          console.log(result)
+          $('#show_result').html(result);
+        });
+      }
+      function option(){
+        enableHighAccuracy: true;
+      }
+      function errorCallback(error) {
+        let err_msg = "";
+        switch(error.code)
+          {
+            case 1:
+              err_msg = "位置情報の利用が許可されていません";
+              break;
+            case 2:
+              err_msg = "デバイスの位置が判定できません";
+              break;
+            case 3:
+              err_msg = "タイムアウトしました";
+              break;
+          }
+        document.getElementById("show_result").innerHTML = err_msg;
+      }
+    });
+  });
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api[:google_map_api] %>&callback=initMap" async defer></script>
