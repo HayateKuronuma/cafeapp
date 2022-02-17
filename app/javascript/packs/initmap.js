@@ -9,7 +9,7 @@
     });
   }
   $(function(){
-    $('.serchbtn').on('click', function(){
+    $('.searchbtn').on('click', function(){
       // LatLngに位置座標を代入
       if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback, option);
