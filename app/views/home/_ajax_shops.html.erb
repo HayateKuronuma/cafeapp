@@ -1,5 +1,8 @@
+<input type="hidden" id="len" value="<%= shops.length %>">
 <div>
-  <% shops.each do |shop| %>
+  <% shops.each_with_index do |shop, i| %>
+    <input type="hidden" id="lat<%= i %>" value="<%= shop["lat"] %>">
+    <input type="hidden" id="lng<%= i %>" value="<%= shop["lng"] %>">
     <div>
       <%= shop["name"] %>
     </div>
