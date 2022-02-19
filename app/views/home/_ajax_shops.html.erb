@@ -1,13 +1,27 @@
 <input type="hidden" id="len" value="<%= shops.length %>">
-<div>
+<div class="row">
   <% shops.each_with_index do |shop, i| %>
     <input type="hidden" id="lat<%= i %>" value="<%= shop["lat"] %>">
     <input type="hidden" id="lng<%= i %>" value="<%= shop["lng"] %>">
-    <div>
-      <%= shop["name"] %>
-    </div>
-    <div>
-      <%= shop["address"] %>
+
+    <div class="card col-12 card-frame">
+      <div class="g-0 card-wrapper">
+        <div>
+          <%= image_tag "#{shop["photo"]["pc"]["l"]}", class: "shop-img", alt: "#{shop["name"]}の写真" %>
+          <p class="text-muted img-provided">画像提供:ホットペッパー グルメ</p>
+        </div>
+        <div>
+          <div class="card-body">
+            <h5 class="card-title" id="shopname<%= i %>">
+              <%= shop["name"] %>
+            </h5>
+            <p class="card-text">
+              <%= shop["catch"] %>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
+<%= link_to image_tag("http://webservice.recruit.co.jp/banner/hotpepper-s.gif", alt: "ホットペッパー Webサービス", width: 135, height: 17, border: 0, title: "ホットペッパー Webサービス" ), "http://webservice.recruit.co.jp/" %>

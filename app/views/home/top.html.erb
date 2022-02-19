@@ -1,10 +1,10 @@
-<div class="container">
-  <h2>gmap</h2>
-  <div id='map'></div>
-  <div class="status"></div>
-  <button type="button" class="searchbtn btn btn-primary">現在地周辺のワンちゃんと行ける飲食店を検索</button>
-  <div id="show_result"></div>
+<div class="home-wrapper">
+  <div class="container">
+    <div id='map'></div>
+    <div class="status"></div>
+    <button type="button" class="searchbtn btn btn-primary">現在地周辺のワンちゃんと行ける飲食店を検索</button>
+    <div id="show-result"></div>
+  </div>
 </div>
-
 <%= javascript_pack_tag 'initmap' %>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api[:google_map_api] %>&callback=globalinitMap" async defer></script>
