@@ -1,0 +1,41 @@
+.shop-header-contents {
+  padding: 25px 30px;
+}
+
+.shop-header-contents-inner {
+  display: flex;
+  width: 100%;
+}
+
+.logo-title-wrapper {
+  display: flex;
+  .shoptitle {
+    flex: 1;
+    .shop-name {
+      font-weight: bold;
+      line-height: 1.2;
+      font-size: 22px;
+    }
+  }
+}
+
+.shop-headerbtn-wrapper {
+  display: flex;
+  flex-direction: column;
+  .favorite-btn {
+    color: rgb(83, 65, 30);
+    background-color: rgb(252, 239, 222);
+    border-color: rgb(252, 239, 222);
+    &::before {
+      content: '\f02e';
+      font-family: 'Font Awesome 5 Free';
+    }
+    &:hover {
+    background-color: rgb(238, 220, 196);
+    border-color: rgb(238, 220, 196);
+    }
+  }
+  .hotpepper-btn {
+    margin-top: 5px;
+  }
+}
