@@ -17,12 +17,25 @@ services:
       - .:/cafeapp
       - /cafeapp/log
     environment:
-      TZ: 'Asia/Tokyo'
+      - TZ='Asia/Tokyo'
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
     env_file:
       - .env
     tty: true
     stdin_open: true
     command: bundle exec rails server -p 3000 -b 0.0.0.0
+  webpacker:
+    build: .
+    environment:
+      - NODE_ENV=development
+      - RAILS_ENV=development
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/cafeapp
+      - gem_data:/usr/local/bundle
+    ports:
+      - '127.0.0.1:3035:3035'
   mysql:
     image: mysql:8.0
     volumes:
