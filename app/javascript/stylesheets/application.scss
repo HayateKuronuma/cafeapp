@@ -1,2 +1,13 @@
 @import "~bootstrap/scss/bootstrap.scss";
-@import '~@fortawesome/fontawesome-free/scss/fontawesome'; 
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/v4-shims';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'Noto Sans JP', sans-serif !important;
+  background-color: #FFF;
+}
