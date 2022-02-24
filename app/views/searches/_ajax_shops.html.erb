@@ -12,9 +12,11 @@
         </div>
         <div>
           <div class="card-body">
-            <h5 class="card-title" id="shopname<%= i %>">
-              <%= shop["name"] %>
-            </h5>
+            <%= link_to shops_path(shop_id: shop["id"]) do %>
+              <h5 class="card-title" id="shopname<%= i %>">
+                <%= shop["name"] %>
+              </h5>
+            <% end %>
             <p class="card-text">
               <%= shop["catch"] %>
             </p>

@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class SearchesController < ApplicationController
   require 'httpclient'
 
   def top
