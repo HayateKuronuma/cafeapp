@@ -9,12 +9,29 @@
 
 .logo-title-wrapper {
   display: flex;
+  flex-grow: 1;
+  border-bottom: 1px solid #e0dccc;
+  padding: 13px 0;
+  .header-logo {
+    margin-right: 15px;
+    .logo-image {
+      height: 100%;
+    }
+  }
   .shoptitle {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .title-crown {
+      margin: 0;
+      color: #504f4f;
+      padding-bottom: 7px;
+      font-size: 1.1rem;
+    }
     .shop-name {
       font-weight: bold;
       line-height: 1.2;
-      font-size: 22px;
+      font-size: 2rem;
     }
   }
 }
@@ -22,13 +39,17 @@
 .shop-headerbtn-wrapper {
   display: flex;
   flex-direction: column;
+  margin-left: 5px;
   .favorite-btn {
-    color: rgb(83, 65, 30);
-    background-color: rgb(252, 239, 222);
-    border-color: rgb(252, 239, 222);
+    color: rgb(250, 244, 232);
+    background-color: rgb(58, 84, 65);
+    border-color: rgb(58, 84, 65);
+    font-size: 1.3rem;
+    padding: 1rem 4rem;
     &::before {
       content: '\f02e';
       font-family: 'Font Awesome 5 Free';
+      margin-right: 3px;
     }
     &:hover {
     background-color: rgb(238, 220, 196);
@@ -37,5 +58,64 @@
   }
   .hotpepper-btn {
     margin-top: 5px;
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.shop-header-info{
+  margin-top: 13px;
+  ul {
+    margin: 0;
+  }
+  li {
+    margin: 2px;
+  }
+  dl {
+    display: flex;
+    margin: 0;
+    dt {
+      font-size: 1.1rem;
+    }
+    dd {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+  }
+}
+
+.shop-review-frame {
+  border: 1px solid rgb(190 176 167);
+  border-radius: 3px;
+  padding: 25px 30px
+}
+
+.shop-review-title {
+  display: flex;
+  align-items: end;
+  border-bottom: 2px solid #e0dccc;
+  img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  h5 {
+    margin-left: 5px;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+
+.review-wrapper {
+  padding: 20px 20px;
+  .review-inner {
+    text-align: center;
+    p {
+      font-size: 1.5rem;
+    }
+    a {
+      font-size: 1.6rem;
+      padding: 0.5rem 1rem;
+    }
   }
 }

@@ -7,7 +7,23 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/v4-shims';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
 
+html {
+  font-size: 10px;
+}
+
 body {
   font-family: 'Noto Sans JP', sans-serif !important;
-  background-color: #FFF;
+  background-color: #faf4e7;
+}
+
+h5 {
+  margin: 0;
+}
+
+ul{
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
 }
