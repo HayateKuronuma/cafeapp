@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'shops/show'
+  get 'shops', to: 'shops#show'
   root to: 'searches#top'
   get 'around_shops', to: 'searches#around_shops'
   devise_for :users
