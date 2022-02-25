@@ -14,6 +14,7 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -                     
     nodejs                                                                                                                              \
     yarn                                                                                                                                \
     vim                                                                                                                                 \
+    imagemagick                                                                                                                         \
   && apt-get clean
 
 RUN mkdir /cafeapp
