@@ -31,7 +31,7 @@
           </div>
 
           <div class="actions my-3">
-            <%= f.submit t('.sign_up'), class: "btn-primary btn" %>
+            <%= f.submit t('.sign_up'), class: "btn-primary btn md-btn" %>
           </div>
         <% end %>
         <%= render "devise/shared/links" %>
@@ -42,8 +42,9 @@
     <div class="container">
       <div class="guest-login-wrapper justify-content-center">
         <h2>ゲストとしてログイン</h2>
-        <%= link_to("ゲストログイン", root_path, class: "btn btn-primary") %>
+        <%= link_to("ゲストログイン", root_path, class: "btn btn-primary md-btn") %>
       </div>
     </div>
   </div>
+  <p class="center-or">OR</p>
 </div>
