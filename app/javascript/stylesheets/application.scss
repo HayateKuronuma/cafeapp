@@ -14,6 +14,16 @@ html {
 body {
   font-family: 'Noto Sans JP', sans-serif !important;
   background-color: #faf4e7;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
 }
 
 h2{
@@ -35,4 +45,17 @@ li {
 .md-btn {
   font-size: 1.3rem;
   padding: 0.7rem 1.3rem;
+}
+
+.footer {
+  width: 100%;
+  background-color: #262b2c;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #faf4e8;
+}
+
+.footer p {
+  font-size: 1.3rem;
 }
