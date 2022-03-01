@@ -1,4 +1,4 @@
-<div class="main-wrapper d-md-flex">
+<div class="user-main-wrapper d-md-flex">
   <div class="split-column left-column">
     <div class="container">
       <div class="form-wrapper">
@@ -8,12 +8,12 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="field">
-            <%= f.label :email %><br />
+            <%= f.label :email %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </div>
 
           <div class="field">
-            <%= f.label :password %><br />
+            <%= f.label :password %>
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
           </div>
 

@@ -14,6 +14,24 @@ html {
 body {
   font-family: 'Noto Sans JP', sans-serif !important;
   background-color: #faf4e7;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  .main-wrapper {
+    flex-grow: 1;
+  }
+}
+
+a {
+  text-decoration: none;
 }
 
 h2{
@@ -35,4 +53,116 @@ li {
 .md-btn {
   font-size: 1.3rem;
   padding: 0.7rem 1.3rem;
+}
+
+header {
+  background-color: #283726;
+}
+
+.header-container {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  padding: 0 30px;
+}
+
+.header-logo {
+  color: #faf4e7;
+  font-size: 2rem;
+}
+
+.header-left-nav {
+  display: flex;
+  align-items: center;
+  max-width: 50%;
+}
+
+.header-right-nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  .right-nav-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .line {
+      width: 2px;
+      height: 35px;
+      background-color: #faf4e7;
+    }
+    .header-btn {
+      color: #faf4e7;
+      background-color: #283726;
+      border-color: #283726;
+      height: 100%;
+      &:hover {
+        background-color: #425e3e;
+        border-color: #425e3e;
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.current-user-img {
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin: 0 16px;
+    padding: 7px;
+  }
+}
+
+.header-nav-menu {
+  background-color: #fff;
+  border: 3px solid #F6F8F9;
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  padding: 15px;
+  list-style: none;
+  margin-top: 0;
+}
+
+.header-nav-menu li {
+  line-height: 30px;
+  font-size: 16px;
+  padding: 3px 5px;
+}
+
+
+.footer {
+  width: 100%;
+  background-color: #262b2c;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #faf4e7;
+}
+
+.footer p {
+  font-size: 1.3rem;
+}
+
+.alert {
+  font-size: 1.2rem;
+  padding: 1rem 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+.alert-notice {
+  background-color: #85c4e0;
+}
+
+.alert-error {
+  background-color: #e8a792;
 }

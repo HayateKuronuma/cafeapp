@@ -1,11 +1,11 @@
-.main-wrapper {
+.user-main-wrapper {
   position: relative;
   background-image: url("/signup-in.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  flex-grow: 1;
   .split-column {
-    height: 100vh;
     width: 100%;
   }
   .left-column {
