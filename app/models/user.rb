@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :name, uniqueness: true, presence: true
 
   has_one_attached :avatar
+  has_many :reviews
 end
