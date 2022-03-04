@@ -32,31 +32,71 @@
           </li>
           <li>
             <dl>
-              <dt> 定休日：</dt>
+              <dt>定休日：</dt>
               <dd><%= @shop["close"] %></dd>
-            </dl>
-            <dl>
-              <dt>
-
-              </dt>
             </dl>
           </li>
         </ul>
       </div>
     </div>
     <div class="shop-review-content">
-      <div class="shop-review-frame"> 
+      <div class="shop-review-frame">
         <div class="shop-review-title">
           <%= image_tag "/review-image.png" %>
           <h5>みんなの口コミ</h5>
+          <% if Review.exists?(@reviews) %>
+            <button type="button" class="btn btn-primary md-btn" data-bs-toggle="modal" data-bs-target="#reviewModal">
+              口コミを投稿する
+            </button>
+          <% end %>
         </div>
         <div class="review-wrapper">
-          <div class="review-inner">
-            <p>現在クチコミはありません</p>
-            <%= link_to "口コミを投稿する", root_path, class: "btn-primary btn" %>
-          </div>
+          <% if Review.exists?(@reviews) %>
+            <div class="review-inner" id="reviews">
+              <%= render "reviews/reviews", reviews: @reviews %>
+            </div>
+          <% else %>
+            <div class="review-inner" id="reviews">
+              <p>現在クチコミはありません</p>
+              <% if user_signed_in? %>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
+                  口コミを投稿する
+                </button>
+              <% else %>
+                <%= link_to "口コミを投稿する", new_user_session_path, class: "btn-primary btn" %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModalLabel">新規投稿</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= form_with(model: @review, local: false) do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.label :title, "タイトル" %>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :comment, "コメント" %>
+            <%= f.text_area :comment, class: "form-control" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :shop_id, value: params[:shop_id] %>
+          <%= f.submit "投稿する", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

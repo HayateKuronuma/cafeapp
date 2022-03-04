@@ -12,5 +12,7 @@ class ShopsController < ApplicationController
     response = client.get(url, query)
     @results = JSON.parse(response.body)
     @shop = @results['results']['shop'][0]
+    @reviews = Review.where(shop_id: params[:shop_id])
+    @review = Review.new
   end
 end

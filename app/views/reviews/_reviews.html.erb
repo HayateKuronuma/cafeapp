@@ -1,0 +1,4 @@
+<% reviews.each do |review| %>
+  <h5><%= review.title %></h5>
+  <p><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
+<% end %>
