@@ -1,0 +1,4 @@
+$(function(){
+  $("#rv-wrapper-<%= @review_id %>").remove();
+   $("#flash-message").html("<%= j(render "shared/flash") %>");
+})
