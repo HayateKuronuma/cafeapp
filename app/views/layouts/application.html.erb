@@ -12,9 +12,11 @@
   <body>
     <%= render "shared/header" %>
     <main>
-      <%= render "shared/flash" %>
+      <div id="flash-message">
+        <%= render "shared/flash" %>
+      </div>
       <%= yield %>
-    </main>  
+    </main>
     <%= render "shared/footer" %>
   </body>
 </html>

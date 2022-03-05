@@ -1,6 +1,8 @@
 $(function(){
   $("textarea").val("");
   $("input").val("");
+  $("#review-error").remove();
   $("#reviewModal").modal("hide");
+  $("#flash-message").html("<%= j(render "shared/flash") %>");
   $("#reviews").html("<%= j(render"reviews", reviews: @reviews) %>");
 })
