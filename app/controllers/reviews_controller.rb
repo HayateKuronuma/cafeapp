@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :check_login, only: [:create,:destroy]
+
   def create
     @review = Review.new(review_params)
     @reviews = Review.where(shop_id: params[:review][:shop_id])
@@ -26,6 +28,10 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:comment, :title, :shop_id, :user_id)
+    params.require(:review).permit(:comment, :title, :shop_id, :user_id, :rate)
+  end
+
+  def check_login
+    redirect_to :root if current_user == nil
   end
 end
