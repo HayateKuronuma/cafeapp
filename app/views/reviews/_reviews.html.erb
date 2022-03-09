@@ -1,9 +1,83 @@
 <% reviews.each do |review| %>
-  <div id="rv-wrapper-<%= review.id %>">
-    <h5 id="rv-title-<%= review.id %>"><%= review.title %></h5>
-    <p id="rv-comment-<%= review.id %>"><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
-    <% if current_user.id == review.user_id %>
-      <%= link_to "削除", review_path(review), data: { confirm: '削除しますか?' }, method: :delete, remote: true %>
-    <% end %>
+  <div class="review-frame" id="rv-wrapper-<%= review.id %>">
+    <div class="review-user-header">
+      <div class="review-user-icon">
+        <% if review.user.avatar.attached? %>
+          <%= image_tag review.user.avatar.variant(gravity: :center, resize:"300x300^", crop:"300x300+0+0") %>
+        <% else %>
+          <%= image_tag "/default_icon.jpg" %>
+        <% end %>
+      </div>
+      <div class="review-user-name">
+        <%= review.user.name %>さんの口コミ
+      </div>
+      <div class="raview-rate-wrapper">
+        <div id="star-rate<%= review.id %>"></div>
+        <span><%= review.rate %></span>
+      </div>
+    </div>
+    <div class="review-main-content">
+      <h5 class="rv-title" id="rv-title-<%= review.id %>"><%= review.title %></h5>
+      <p class="rv-comment" id="rv-comment-<%= review.id %>"><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
+      <% if user_signed_in? && current_user.id == review.user_id %>
+        <%= link_to "編集", edit_review_path(review), 'data-bs-toggle': :"modal", 'data-bs-target': :"#reviewEditModal#{review.id}", remote: true %>
+        <%= link_to review_path(review), data: { confirm: '削除しますか?' }, method: :delete, remote: true do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
+  <div class="modal fade" id="reviewEditModal<%= review.id %>" tabindex="-1" aria-labelledby="reviewEditModalLabel<%= review.id %>" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reviewEditModalLabel<%= review.id %>">新規投稿</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <%= form_with(model: review, local: false) do |f| %>
+          <div class="modal-body">
+            <div id="review-error">
+              <%= render "devise/shared/error_messages", resource: f.object %>
+            </div>
+            <div class="form-group" id="re-star-<%= review.id %>">
+              <%= f.label :rate, "評価" %>
+              <%= f.hidden_field :rate, id: :review_star %>
+            </div>
+            <div class="form-group">
+              <%= f.label :title, "タイトル" %>
+              <%= f.text_field :title, class: "form-control review-form" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :comment, "コメント" %>
+              <%= f.text_area :comment, class: "form-control review-form" %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+            <%= f.submit "投稿する", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <script>
+    $("#star-rate<%= review.id %>").raty({
+      size: 36,
+      starOff: "star-off.png",
+      starOn: "star-on.png",
+      starHalf: "star-half.png",
+      half: true,
+      readOnly: true,
+      score: "<%= review.rate %>",
+    });
+    $("#re-star-<%= review.id %>").raty({
+      size: 36,
+      starOff: "star-off.png",
+      starOn: "star-on.png",
+      starHalf: "star-half.png",
+      scoreName: "review[rate]",
+      half: true,
+      score: "<%= review.rate %>"
+    });
+  </script>
 <% end %>

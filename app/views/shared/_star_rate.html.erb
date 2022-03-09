@@ -1,0 +1,13 @@
+<div id="star-rate-<%= shop_id %>"></div>
+<span><%= reviews.average(:rate).to_f.round(1) %></span>
+<script>
+  $('#star-rate-<%= shop_id %>').raty({
+    size: 10,
+    starOff:  "star-off.png",
+    starOn : "star-on.png",
+    starHalf: "star-half.png",
+    half: true,
+    readOnly: true,
+    score: "<%= reviews.average(:rate).to_f.round(1) %>",
+  });
+</script>

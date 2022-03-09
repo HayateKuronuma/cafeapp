@@ -9,6 +9,9 @@
           <div class="shoptitle">
             <span class="title-crown"><%= @shop["genre"]["catch"] %></span>
             <h3 class="shop-name"><%= @shop["name"] %></h3>
+            <div id="shop-avg-rate">
+              <%= render "shared/star_rate", shop_id: @shop_id, reviews: @reviews %>
+            </div>
           </div>
         </div>
         <div class="shop-headerbtn-wrapper">
@@ -84,6 +87,10 @@
           <div id="review-error">
             <%= render "devise/shared/error_messages", resource: f.object %>
           </div>
+          <div class="form-group" id="star">
+            <%= f.label :rate, "評価" %>
+            <%= f.hidden_field :rate, id: :review_star %>
+          </div>
           <div class="form-group">
             <%= f.label :title, "タイトル" %>
             <%= f.text_field :title, class: "form-control review-form" %>
@@ -92,11 +99,21 @@
             <%= f.label :comment, "コメント" %>
             <%= f.text_area :comment, class: "form-control review-form" %>
           </div>
+          <script>
+              $('#star').raty({
+                size: 36,
+                starOff:  "star-off.png",
+                starOn : "star-on.png",
+                starHalf: "star-half.png",
+                scoreName: "review[rate]",
+                half: true,
+              });
+          </script>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
           <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :shop_id, value: params[:shop_id] %>
+          <%= f.hidden_field :shop_id, value: @shop_id %>
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         </div>
       <% end %>

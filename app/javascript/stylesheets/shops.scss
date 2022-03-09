@@ -10,8 +10,8 @@
 .logo-title-wrapper {
   display: flex;
   flex-grow: 1;
-  border-bottom: 1px solid #e0dccc;
   padding: 13px 0;
+  border-bottom: 1px solid #e0dccc;
   .header-logo {
     margin-right: 15px;
     .logo-image {
@@ -24,15 +24,24 @@
     justify-content: center;
     .title-crown {
       margin: 0;
-      color: #504f4f;
       padding-bottom: 7px;
+      color: #504f4f;
       font-size: 1.1rem;
     }
     .shop-name {
       font-weight: bold;
-      line-height: 1.2;
       font-size: 2rem;
+      line-height: 1.2;
     }
+  }
+}
+
+#shop-avg-rate {
+  display: flex;
+  align-items: center;
+  span {
+    margin-left: .8rem;
+    font-size: 2rem;
   }
 }
 
@@ -41,29 +50,29 @@
   flex-direction: column;
   margin-left: 5px;
   .favorite-btn {
-    color: rgb(250, 244, 232);
-    background-color: rgb(58, 84, 65);
+    padding: .5rem 3rem;
     border-color: rgb(58, 84, 65);
-    font-size: 1.3rem;
-    padding: 1rem 4rem;
+    background-color: rgb(58, 84, 65);
+    color: rgb(250, 244, 232);
+    font-size: 1.6rem;
     &::before {
-      content: '\f02e';
-      font-family: 'Font Awesome 5 Free';
       margin-right: 3px;
+      font-family: "Font Awesome 5 Free";
+      content: "\f02e";
     }
     &:hover {
-    background-color: rgb(238, 220, 196);
-    border-color: rgb(238, 220, 196);
+      border-color: rgb(238, 220, 196);
+      background-color: rgb(238, 220, 196);
     }
   }
   .hotpepper-btn {
     margin-top: 5px;
+    padding: .5rem 1rem;
     font-size: 1.6rem;
-    padding: 0.5rem 1rem;
   }
 }
 
-.shop-header-info{
+.shop-header-info {
   margin-top: 13px;
   ul {
     margin: 0;
@@ -78,31 +87,35 @@
       font-size: 1.1rem;
     }
     dd {
-      font-size: 1.1rem;
       margin: 0;
+      font-size: 1.1rem;
     }
   }
 }
 
 .shop-review-frame {
+  padding: 25px 30px;
   border: 1px solid rgb(190 176 167);
-  border-radius: 3px;
-  padding: 25px 30px
+  border-radius: 3px;;
 }
 
 .shop-review-title {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   border-bottom: 2px solid #e0dccc;
   img {
     width: 3.5rem;
     height: 3.5rem;
   }
   h5 {
+    flex-grow: 1;
     margin-left: 5px;
-    font-size: 2.2rem;
     font-weight: 600;
+    font-size: 2.2rem;
     line-height: normal;
+  }
+  button {
+    margin-bottom: .5rem;
   }
 }
 
@@ -113,9 +126,75 @@
     p {
       font-size: 1.5rem;
     }
-    a, button {
+    button {
+      padding: .5rem 1rem;
       font-size: 1.6rem;
-      padding: 0.5rem 1rem;
     }
+  }
+}
+
+.review-frame {
+  padding: 15px;
+  border: 1px solid #dfdccc;
+  border-radius: .2rem;
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
+
+.review-user-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #ebe8d9;
+}
+
+.review-user-icon {
+  img {
+    width: 60px;
+    height: 60px;
+    margin: 0 16px;
+    padding: 7px;
+    border-radius: 50px;
+    -o-object-fit: cover;
+      object-fit: cover;
+  }
+}
+
+.review-user-name {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.raview-rate-wrapper {
+  display: flex;
+  align-items: flex-end;
+  div {
+    display: inline-block;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  span {
+    margin-left: .6rem;
+    font-size: 1.3rem;
+  }
+}
+
+.review-main-content {
+  padding: 2rem 2rem 0 2rem;
+  text-align: left;
+  .rv-title {
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+  .rv-comment {
+    margin-top: 1.6rem;
+  }
+  a {
+    padding: 0;
+    color: #212529;
+    font-size: 1.6rem;
   }
 }
