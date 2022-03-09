@@ -19,7 +19,6 @@
     click:        undefined,
     half:         false,
     halfShow:     true,
-    hints:        ['bad', 'poor', 'regular', 'good', 'gorgeous'],
     iconRange:    undefined,
     iconRangeSame: false,
     mouseout:     undefined,
