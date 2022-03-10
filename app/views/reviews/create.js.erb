@@ -4,5 +4,5 @@ $(function(){
   $("#reviewModal").modal("hide");
   $("#flash-message").html("<%= j(render "shared/flash") %>");
   $("#shop-avg-rate").html("<%= j(render "shared/star_rate", shop_id: @shop_id, reviews: @reviews) %>");
-  $("#reviews").html("<%= j(render"reviews", reviews: @reviews) %>");
+  $("#shop-review-content").html("<%= j(render"reviews", reviews: @reviews) %>");
 })

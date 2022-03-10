@@ -42,36 +42,8 @@
         </ul>
       </div>
     </div>
-    <div class="shop-review-content">
-      <div class="shop-review-frame">
-        <div class="shop-review-title">
-          <%= image_tag "/review-image.png" %>
-          <h5>みんなの口コミ</h5>
-          <% if Review.exists?(@reviews) %>
-            <button type="button" class="btn btn-primary md-btn" data-bs-toggle="modal" data-bs-target="#reviewModal">
-              口コミを投稿する
-            </button>
-          <% end %>
-        </div>
-        <div class="review-wrapper">
-          <% if Review.exists?(@reviews) %>
-            <div class="review-inner" id="reviews">
-              <%= render "reviews/reviews", reviews: @reviews %>
-            </div>
-          <% else %>
-            <div class="review-inner" id="reviews">
-              <p>現在クチコミはありません</p>
-              <% if user_signed_in? %>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
-                  口コミを投稿する
-                </button>
-              <% else %>
-                <%= link_to "口コミを投稿する", new_user_session_path, class: "btn-primary btn" %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </div>
+    <div id="shop-review-content">
+      <%= render "reviews/reviews", reviews: @reviews %>
     </div>
   </div>
 </div>
@@ -111,10 +83,10 @@
           </script>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+          <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :shop_id, value: @shop_id %>
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
+          <%= f.submit "投稿する", class: "btn md-btn btn-primary" %>
         </div>
       <% end %>
     </div>

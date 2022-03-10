@@ -1,5 +1,5 @@
 $(function(){
-  $("#rv-wrapper-<%= @review_id %>").remove();
+  $("#shop-review-content").html("<%= j(render"reviews", reviews: @reviews) %>");
   $("#flash-message").html("<%= j(render "shared/flash") %>");
   $("#shop-avg-rate").html("<%= j(render "shared/star_rate", shop_id: @shop_id, reviews: @reviews) %>");
 })
