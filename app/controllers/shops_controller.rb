@@ -13,7 +13,7 @@ class ShopsController < ApplicationController
     @results = JSON.parse(response.body)
     @shop = @results['results']['shop'][0]
     @shop_id = @shop["id"]
-    @reviews = Review.where(shop_id: @shop_id)
+    @reviews = Review.where(shop_id: @shop_id).order(created_at: "DESC")
     @review = Review.new
   end
 end
