@@ -19,12 +19,16 @@
     <div class="review-main-content">
       <h5 class="rv-title" id="rv-title-<%= review.id %>"><%= review.title %></h5>
       <p class="rv-comment" id="rv-comment-<%= review.id %>"><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
-      <% if user_signed_in? && current_user.id == review.user_id %>
-        <%= link_to "編集", edit_review_path(review), 'data-bs-toggle': :"modal", 'data-bs-target': :"#reviewEditModal#{review.id}", remote: true %>
-        <%= link_to review_path(review), data: { confirm: '削除しますか?' }, method: :delete, remote: true do %>
-          <i class="far fa-trash-alt"></i>
+      <div class="edit-delete-btn">
+        <% if user_signed_in? && current_user.id == review.user_id %>
+          <%= link_to edit_review_path(review), 'data-bs-toggle': :"modal", 'data-bs-target': :"#reviewEditModal#{review.id}", remote: true do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+          <%= link_to review_path(review), data: { confirm: '削除しますか?' }, method: :delete, remote: true do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
   <div class="modal fade" id="reviewEditModal<%= review.id %>" tabindex="-1" aria-labelledby="reviewEditModalLabel<%= review.id %>" aria-hidden="true">
