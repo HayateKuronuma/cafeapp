@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :check_login
+  before_action :authenticate_user!
 
   def create
     @review = Review.new(review_params)
@@ -51,9 +51,5 @@ class ReviewsController < ApplicationController
   private
   def review_params
     params.require(:review).permit(:comment, :title, :shop_id, :user_id, :rate)
-  end
-
-  def check_login
-    redirect_to :root if current_user == nil
   end
 end
