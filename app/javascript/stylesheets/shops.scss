@@ -126,10 +126,6 @@
     p {
       font-size: 1.5rem;
     }
-    button {
-      padding: .5rem 1rem;
-      font-size: 1.6rem;
-    }
   }
 }
 
@@ -137,6 +133,7 @@
   padding: 15px;
   border: 1px solid #dfdccc;
   border-radius: .2rem;
+  box-shadow: 11px 20px 20px -25px rgb(38 43 44 / 15%);
   &:not(:first-child) {
     margin-top: 2rem;
   }
@@ -199,6 +196,20 @@
   }
 }
 
+#review_title {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+#review_comment {
+  font-size: 1.4rem;
+  min-height: calc(1.5em * 8);
+}
+
+.review-form {
+  margin-top: 1.3rem;
+}
+
 .edit-delete-btn {
   text-align: end;
   a {
@@ -206,4 +217,8 @@
       margin-left: 1.5rem;
     }
   }
+}
+
+.modal-container {
+  max-width: 700px;
 }

@@ -1,29 +1,29 @@
 @import "~bootstrap/scss/bootstrap.scss";
-$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~@fortawesome/fontawesome-free/scss/v4-shims';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/v4-shims";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap");
 
 html {
   font-size: 10px;
 }
 
 body {
-  font-family: 'Noto Sans JP', sans-serif !important;
-  background-color: #faf4e7;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  background-color: #faf4e7;
+  font-family: "Noto Sans JP", sans-serif !important;
 }
 
 main {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   .main-wrapper {
     flex-grow: 1;
@@ -34,7 +34,7 @@ a {
   text-decoration: none;
 }
 
-h2{
+h2 {
   font-size: 2.5rem;
 }
 
@@ -42,7 +42,7 @@ h5 {
   margin: 0;
 }
 
-ul{
+ul {
   padding: 0;
 }
 
@@ -50,9 +50,29 @@ li {
   list-style-type: none;
 }
 
+#error_explanation {
+  display: inline-block;
+  padding: 1rem;
+  color: red;
+}
+
 .md-btn {
+  padding: .7rem 1.3rem;
   font-size: 1.3rem;
-  padding: 0.7rem 1.3rem;
+}
+
+.lg-btn {
+  padding: .5rem 1rem;
+  font-size: 1.6rem;
+}
+
+.modal-title {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.modal-body {
+  text-align: left;
 }
 
 header {
@@ -60,11 +80,11 @@ header {
 }
 
 .header-container {
-  height: 70px;
   display: flex;
-  align-items: center;
-  justify-content:space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
   padding: 0 30px;
 }
 
@@ -93,13 +113,14 @@ header {
       background-color: #faf4e7;
     }
     .header-btn {
-      color: #faf4e7;
-      background-color: #283726;
-      border-color: #283726;
       height: 100%;
+      border-color: #283726;
+      background-color: #283726;
+      color: #faf4e7;
+      transition: background-color .15s ease-in-out, border-color .15s ease-in-out;
       &:hover {
-        background-color: #425e3e;
         border-color: #425e3e;
+        background-color: #425e3e;
       }
     }
     a {
@@ -113,40 +134,41 @@ header {
   img {
     width: 60px;
     height: 60px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    border-radius: 50px;
     margin: 0 16px;
     padding: 7px;
+    border-radius: 50px;
+    -o-object-fit: cover;
+      object-fit: cover;
   }
 }
 
 .header-nav-menu {
-  background-color: #fff;
-  border: 3px solid #F6F8F9;
   display: none;
+  list-style: none;
   position: absolute;
   top: 70px;
   right: 10px;
-  padding: 15px;
-  list-style: none;
   margin-top: 0;
+  padding: 15px;
+  border: 3px solid #f6f8f9;
+  background-color: #ffffff;
 }
 
 .header-nav-menu li {
-  line-height: 30px;
-  font-size: 16px;
   padding: 3px 5px;
+  font-size: 16px;
+  line-height: 30px;
 }
 
 
 .footer {
   width: 100%;
-  background-color: #262b2c;
-  text-align: center;
+  margin-top: 30px;
   padding-top: 50px;
   padding-bottom: 10px;
+  background-color: #262b2c;
   color: #faf4e7;
+  text-align: center;
 }
 
 .footer p {
@@ -154,9 +176,9 @@ header {
 }
 
 .alert {
-  font-size: 1.2rem;
-  padding: 1rem 1rem;
   margin: 0;
+  padding: 1rem 1rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 
