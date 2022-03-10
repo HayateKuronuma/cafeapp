@@ -3,9 +3,13 @@
     <%= image_tag "/review-image.png" %>
     <h5>みんなの口コミ</h5>
     <% if Review.exists?(reviews) %>
-      <button type="button" class="btn btn-primary md-btn" data-bs-toggle="modal" data-bs-target="#reviewModal">
-        口コミを投稿する
-      </button>
+      <% if user_signed_in? %>
+        <button type="button" class="btn md-btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
+          口コミを投稿する
+        </button>
+      <% else %>
+        <%= link_to "口コミを投稿する", new_user_session_path, class: "btn-primary btn" %>
+      <% end %>
     <% end %>
   </div>
   <div class="review-wrapper">
@@ -45,7 +49,7 @@
             </div>
           </div>
           <div class="modal fade" id="reviewEditModal<%= review.id %>" tabindex="-1" aria-labelledby="reviewEditModalLabel<%= review.id %>" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-container">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="reviewEditModalLabel<%= review.id %>">口コミ編集</h5>
@@ -53,7 +57,7 @@
                 </div>
                 <%= form_with(model: review, local: false) do |f| %>
                   <div class="modal-body">
-                    <div id="review-error">
+                    <div id="edit-error">
                       <%= render "devise/shared/error_messages", resource: f.object %>
                     </div>
                     <div class="form-group" id="re-star-<%= review.id %>">
@@ -61,12 +65,10 @@
                       <%= f.hidden_field :rate, id: :review_star %>
                     </div>
                     <div class="form-group">
-                      <%= f.label :title, "タイトル" %>
-                      <%= f.text_field :title, class: "form-control review-form" %>
+                      <%= f.text_field :title, class: "form-control review-form", placeholder: "タイトルを入力してください" %>
                     </div>
                     <div class="form-group">
-                      <%= f.label :comment, "コメント" %>
-                      <%= f.text_area :comment, class: "form-control review-form" %>
+                      <%= f.text_area :comment, class: "form-control review-form", placeholder: "本文を入力してください" %>
                     </div>
                   </div>
                   <div class="modal-footer">
@@ -103,11 +105,11 @@
       <div class="review-inner" id="reviews">
         <p>現在クチコミはありません</p>
         <% if user_signed_in? %>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
+          <button type="button" class="btn lg-btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
             口コミを投稿する
           </button>
         <% else %>
-          <%= link_to "口コミを投稿する", new_user_session_path, class: "btn-primary btn" %>
+          <%= link_to "口コミを投稿する", new_user_session_path, class: "btn lg-btn btn-primary" %>
         <% end %>
       </div>
     <% end %>
