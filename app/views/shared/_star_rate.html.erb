@@ -1,5 +1,9 @@
 <div id="star-rate-<%= shop_id %>"></div>
 <span><%= reviews.average(:rate).to_f.round(1) %></span>
+<div class="reviews-count">
+  <i class="far fa-comments"></i>
+  <p><%= reviews.count %>件</p>
+</div>
 <script>
   $('#star-rate-<%= shop_id %>').raty({
     size: 10,
