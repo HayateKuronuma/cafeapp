@@ -1,0 +1,10 @@
+<% case controller.action_name %>
+<% when "create" %>
+  $(function(){
+    $("#review-error").html("<%= j(render "devise/shared/error_messages", resource: @review) %>");
+  })
+<% when "update" %>
+  $(function(){
+    $("#edit-error").html("<%= j(render "devise/shared/error_messages", resource: @review) %>");
+  })
+<% end %>

@@ -1,10 +1,10 @@
 .user-main-wrapper {
+  flex-grow: 1;
   position: relative;
   background-image: url("/signup-in.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
-  flex-grow: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
   .split-column {
     width: 100%;
   }
@@ -17,37 +17,38 @@
     align-items: center;;
   }
   .center-or {
-    margin: 0;
-    font-size: 1.5rem;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-45%, -50%);
     -webkit-transform: translate(-45%, -50%);
-    -ms-transform: translate(-45%, -50%);
-    background-color: #FFF;
-    border-radius: 50%;
-    color: rgba(175, 138, 104);
+        -ms-transform: translate(-45%, -50%);
+            transform: translate(-45%, -50%);
+    margin: 0;
     padding: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: rgba(175, 138, 104);
+    font-size: 1.5rem;
   }
 }
 
 .form-wrapper {
   width: 60%;
-  text-align: center;
   margin: 0 auto;
   padding: 25px;
-  background-color: rgba(240, 249, 255, 0.4);
-  backdrop-filter: blur(20px);
   border-radius: 6px;
-  box-shadow: 4px 3px 12px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 3px 12px 1px rgba(0, 0, 0, .75);
+  background-color: rgba(240, 249, 255, .4);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  text-align: center;
   .new_user, .sign-in {
     width: 90%;
     margin: 0 auto;
   }
   .field {
-    margin: 0 auto 10px auto;
     width: 100%;
+    margin: 0 auto 10px auto;
     text-align: start;
   }
 }
@@ -63,16 +64,15 @@
 
 .guest-login-wrapper {
   width: 60%;
-  text-align: center;
   margin: 0 auto;
   padding: 25px;
-  background-color: rgba(240, 249, 255, 0.4);
-  backdrop-filter: blur(20px);
   border-radius: 6px;
-  box-shadow: 4px 3px 12px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 3px 12px 1px rgba(0, 0, 0, .75);
+  background-color: rgba(240, 249, 255, .4);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  text-align: center;
   a {
     margin-top: 15px;
   }
 }
-
-

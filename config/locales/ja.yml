@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      review:
+        title: タイトル
+        comment: 本文
+        shop_id: ショップID
+        rate: 評価

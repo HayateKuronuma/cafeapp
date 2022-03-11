@@ -1,0 +1,117 @@
+<div class="shop-review-frame">
+  <div class="shop-review-title">
+    <%= image_tag "/review-image.png" %>
+    <h5>みんなの口コミ</h5>
+    <% if Review.exists?(reviews) %>
+      <% if user_signed_in? %>
+        <button type="button" class="btn md-btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
+          口コミを投稿する
+        </button>
+      <% else %>
+        <%= link_to "口コミを投稿する", new_user_session_path, class: "btn-primary btn" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="review-wrapper">
+    <% if Review.exists?(reviews) %>
+      <div class="review-inner" id="reviews">
+        <% reviews.each do |review| %>
+          <div class="review-frame" id="rv-wrapper-<%= review.id %>">
+            <div class="review-user-header">
+              <div class="review-user-icon">
+                <% if review.user.avatar.attached? %>
+                  <%= image_tag review.user.avatar.variant(gravity: :center, resize:"300x300^", crop:"300x300+0+0") %>
+                <% else %>
+                  <%= image_tag "/default_icon.jpg" %>
+                <% end %>
+              </div>
+              <div class="review-user-name">
+                <%= review.user.name %>さんの口コミ
+              </div>
+              <div class="raview-rate-wrapper">
+                <div id="star-rate<%= review.id %>"></div>
+                <span><%= review.rate %></span>
+              </div>
+            </div>
+            <div class="review-main-content">
+              <h5 class="rv-title" id="rv-title-<%= review.id %>"><%= review.title %></h5>
+              <p class="rv-comment" id="rv-comment-<%= review.id %>"><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
+              <div class="edit-delete-btn">
+                <% if user_signed_in? && current_user.id == review.user_id %>
+                  <%= link_to edit_review_path(review), 'data-bs-toggle': :"modal", 'data-bs-target': :"#reviewEditModal#{review.id}", remote: true do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                  <%= link_to review_path(review), data: { confirm: '削除しますか?' }, method: :delete, remote: true do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="reviewEditModal<%= review.id %>" tabindex="-1" aria-labelledby="reviewEditModalLabel<%= review.id %>" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-container">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="reviewEditModalLabel<%= review.id %>">口コミ編集</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <%= form_with(model: review, local: false) do |f| %>
+                  <div class="modal-body">
+                    <div id="edit-error">
+                      <%= render "devise/shared/error_messages", resource: f.object %>
+                    </div>
+                    <div class="form-group" id="re-star-<%= review.id %>">
+                      <%= f.label :rate, "評価" %>
+                      <%= f.hidden_field :rate, id: :review_star %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.text_field :title, class: "form-control review-form", placeholder: "タイトルを入力してください" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.text_area :comment, class: "form-control review-form", placeholder: "本文を入力してください" %>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                    <%= f.submit "投稿する", class: "btn md-btn btn-primary" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <script>
+            $("#star-rate<%= review.id %>").raty({
+              size: 36,
+              starOff: "star-off.png",
+              starOn: "star-on.png",
+              starHalf: "star-half.png",
+              half: true,
+              readOnly: true,
+              score: "<%= review.rate %>",
+            });
+            $("#re-star-<%= review.id %>").raty({
+              size: 36,
+              starOff: "star-off.png",
+              starOn: "star-on.png",
+              starHalf: "star-half.png",
+              scoreName: "review[rate]",
+              half: true,
+              score: "<%= review.rate %>"
+            });
+          </script>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="review-inner" id="reviews">
+        <p>現在クチコミはありません</p>
+        <% if user_signed_in? %>
+          <button type="button" class="btn lg-btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
+            口コミを投稿する
+          </button>
+        <% else %>
+          <%= link_to "口コミを投稿する", new_user_session_path, class: "btn lg-btn btn-primary" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
