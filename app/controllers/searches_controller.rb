@@ -2,7 +2,6 @@ class SearchesController < ApplicationController
   require 'httpclient'
 
   def top
-    
   end
 
   def around_shops
