@@ -46,7 +46,9 @@ $(function(){
           let shopname = document.getElementById(`shopname${i}`).innerHTML;
           marker[i] = new google.maps.Marker({
             map: map,
-            position: new google.maps.LatLng( document.getElementById(`lat${i}`).value, document.getElementById(`lng${i}`).value )
+            label: `${i+1}`,
+            position: new google.maps.LatLng( document.getElementById(`lat${i}`).value, document.getElementById(`lng${i}`).value ),
+            animation: google.maps.Animation.DROP
           });
           infoWindow[i] = new google.maps.InfoWindow({
             // contentで中身を指定
