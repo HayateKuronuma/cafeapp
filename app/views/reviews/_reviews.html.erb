@@ -2,7 +2,7 @@
   <div class="shop-review-title">
     <%= image_tag "/review-image.png" %>
     <h5>みんなの口コミ</h5>
-    <% if Review.exists?(reviews) %>
+    <% if reviews.present? %>
       <% if user_signed_in? %>
         <button type="button" class="btn md-btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
           口コミを投稿する
@@ -13,7 +13,7 @@
     <% end %>
   </div>
   <div class="review-wrapper">
-    <% if Review.exists?(reviews) %>
+    <% if reviews.present? %>
       <div class="review-inner" id="reviews">
         <% reviews.each do |review| %>
           <div class="review-frame" id="rv-wrapper-<%= review.id %>">

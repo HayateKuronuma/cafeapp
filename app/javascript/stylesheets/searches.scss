@@ -1,5 +1,15 @@
-#show-result {
-  margin-top: 20px;
+#status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8rem;
+  p {
+    font-size: 1.7rem;
+  }
+}
+
+.hidden {
+  display: none !important;
 }
 
 .home-wrapper {
@@ -12,21 +22,144 @@
   margin-bottom: 30px;
 }
 
+.search-btn-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-btn {
+  background-color: #1a6011;
+  border: 1px solid #1a6011;
+  color: #fff;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  &:hover {
+    background-color: #668f60;
+    color: #fff;
+    border: 1px solid #668f60;
+  }
+  &:active {
+    background-color: #1a6011;
+    background-image: linear-gradient(to bottom, #1a6011, #668f60);
+  }
+}
+
+.search-result-wrapper {
+  margin-top: 1rem;
+}
+
 .card-frame {
-  margin-bottom: 10px;
-  padding: 15px;
+  margin-top: 1.5rem;
+  padding: 1.5rem 2.5rem;
+  flex-direction: row;
+  align-items: center;
+  &:hover {
+    color: orange;
+    border: 1px solid orange;
+    transition: border-color .15s ease-in-out;
+  }
   .card-wrapper {
     display: flex;
+    flex-grow: 1;
   }
+
+}
+
+.card-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .shop-img {
-    max-width: 180px;
-    max-height: 180px;
-    aspect-ratio: 1 / 1;
-    -o-object-fit: cover;
-      object-fit: cover;
+  max-width: 180px;
+  max-height: 180px;
+  aspect-ratio: 1 / 1;
+  -o-object-fit: cover;
+    object-fit: cover;
   }
   .img-provided {
     margin: 0;
     font-size: 3px;
   }
+}
+
+.card-rate-wrapper {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 1rem;
+  color: #212529;
+  img {
+    max-width: 2rem;
+  }
+  span {
+    font-size: 1.7rem;
+    line-height: 1;
+    margin-left: 1rem;
+  }
+}
+
+.card-body {
+  margin-left: 1rem;
+  .card-genre {
+    color: #666;
+    font-size: 1.3rem;
+  }
+  .card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+  .card-area-name {
+    border: 1px solid;
+    padding: 0.3rem;
+    line-height: 1;
+  }
+  .card-area-access {
+    display: flex;
+    color: #212529;
+    font-size: 1.1rem;
+    align-items: center;
+  }
+  .card-access {
+    margin-left: 0.5rem;
+  }
+  .card-text {
+    color: #666;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+  }
+}
+
+.represent-review {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 1.2rem 1.3rem;
+  background-color: #faf8f5;
+  color: #212529;
+  p {
+    &:first-child {
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+    &:last-child {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.shop-marker-num {
+  width: 20%;
+  font-size: 2rem;
+  color: #ea4435;
+  p {
+    color: #fff;
+    top: -1rem;
+    font-size: 3rem;
+    text-shadow: 5px 5px 13px #000000, 2px 2px black;
+  }
+}
+
+.api-credit {
+  margin-top: 1rem;
 }
