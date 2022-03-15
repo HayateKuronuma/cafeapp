@@ -11,7 +11,7 @@ window.$ = window.jQuery = require('jquery');
 import 'packs/raty.js'
 
 Rails.start()
-Turbolinks.start()
+//Turbolinks.start()
 ActiveStorage.start()
 
 import "bootstrap"
