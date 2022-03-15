@@ -1,19 +1,23 @@
-const locating = document.querySelector(".status");
 let map;
-let marker = [];
-let infoWindow = [];
+let myMarker;
+
 window.globalinitMap = function() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 35.6896385, lng: 139.689912},
     zoom: 16
   });
+  myMarker =  new google.maps.Marker();
 }
 $(function(){
-  $('.searchbtn').on('click', function(){
+  const locating = document.querySelector("#status");
+  let markerList = [];
+  let infoWindow = [];
+
+  $('#search-btn').on('click', function(){
     //現在地取得
     if (navigator.geolocation){
       navigator.geolocation.getCurrentPosition(successCallback, errorCallback, option);
-      locating.textContent = "Locating…";
+      locating.classList.remove("hidden");
     }else{
       message = 'ご使用中のブラウザは現在地検索に対応しておりません。'
       alert('warning', message);
@@ -21,10 +25,12 @@ $(function(){
     //取得成功時
     function successCallback(position) {
       // LatLngに位置座標を代入
-      LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      locating.textContent = "";
+      const LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+      locating.classList.add("hidden");
       map.setCenter(LatLng);
-      marker = new google.maps.Marker({
+      myMarker.setMap(null);
+      myMarker = new google.maps.Marker({
         position: LatLng,
         map: map,
         icon: "/currenticon.png"
@@ -41,10 +47,16 @@ $(function(){
         },
       }).done(function(result) {
         $('#show_result').html(result);
+        infoWindow.forEach(function(infowindow) {
+          infowindow.close();
+        });
+        markerList.forEach(function(marker) {
+          marker.setMap(null);
+        });
         const len = document.getElementById('len').value;
         for (let i = 0; i < len; i++) {
           let shopname = document.getElementById(`shopname${i}`).innerHTML;
-          marker[i] = new google.maps.Marker({
+          markerList[i] = new google.maps.Marker({
             map: map,
             label: `${i+1}`,
             position: new google.maps.LatLng( document.getElementById(`lat${i}`).value, document.getElementById(`lng${i}`).value ),
@@ -55,9 +67,8 @@ $(function(){
             content: `<div>${shopname}</div>`
           });
           // markerがクリックされた時、
-          marker[i].addListener("click", function(){
-              // infoWindowを表示
-              infoWindow[i].open(map, marker[i]);
+          markerList[i].addListener("click", function(){
+              infoWindow[i].open(map, markerList[i]);
           });
         }
       });
