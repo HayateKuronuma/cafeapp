@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     if @review.save
       flash.now[:notice] = "口コミを投稿しました"
       respond_to do |format|
-        format.html { redirect_to shops_path(shop_id: @shop_id) }
+        format.html { redirect_to shop_path(shop_id: @shop_id) }
         format.js
       end
     else
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       flash.now[:notice] = "口コミを編集しました"
       respond_to do |format|
-        format.html { redirect_to shops_path(shop_id: @shop_id) }
+        format.html { redirect_to shop_path(shop_id: @shop_id) }
         format.js
       end
     else
@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
     @review.destroy
     flash.now[:alert] = "投稿を削除しました"
     respond_to do |format|
-      format.html { redirect_to shops_path(shop_id: @review.shop_id) }
+      format.html { redirect_to shop_path(shop_id: @review.shop_id) }
       format.js
     end
   end
