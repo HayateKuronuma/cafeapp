@@ -15,7 +15,9 @@
           </div>
         </div>
         <div class="shop-headerbtn-wrapper">
-          <%= link_to "お気に入りに保存", @shop["urls"]["pc"], class: "btn favorite-btn" %>
+          <div class="favorite-btn-wrapper" id="favorite-<%= @shop_id %>">
+            <%= render "favorite", shop_id: @shop_id, favorite: @favorite %>
+          </div>
           <%= link_to "HOT PEPPERで見る", @shop["urls"]["pc"], class: "btn btn-primary hotpepper-btn" %>
         </div>
       </div>
