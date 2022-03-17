@@ -29,12 +29,18 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    Favorite.find_by(user_id: current_user.id, shop_id: params[:shop_id]).destroy
+    path = Rails.application.routes.recognize_path(request.referer)
+    Favorite.find_by(id: params[:id]).destroy
     @shop_id = params[:shop_id]
     flash.now[:alert] = "お気に入りを削除しました"
-    respond_to do |format|
-      format.html { redirect_to shop_path(shop_id: params[:shop_id]) }
-      format.js
+    if path[:controller] == "shops" && path[:action] == "show"
+      flash.now[:alert] = "お気に入りを削除しました"
+      respond_to do |format|
+        format.html { redirect_to shop_path(shop_id: params[:shop_id]) }
+        format.js
+      end
+    elsif path[:controller] == "favorites" && path[:action] == "index"
+      redirect_to favorites_path, alert: "お気に入りを削除しました"
     end
   end
 end

@@ -1,0 +1,67 @@
+<div class="row search-result-wrapper">
+  <% @shops.each_with_index do |shop, i| %>
+    <div class="card-content">
+      <%= link_to shop_path(shop_id: shop["id"]) do %>
+        <div class="card col-12 card-frame <%= "align-center" if current_page?(around_shops_path) %>">
+          <input type="hidden" id="lat<%= i %>" value="<%= shop["lat"] %>">
+          <input type="hidden" id="lng<%= i %>" value="<%= shop["lng"] %>">
+          <div class="g-0 card-wrapper">
+            <div class="card-img-wrapper">
+              <%= image_tag "#{shop["photo"]["pc"]["l"]}", class: "#{current_page?(around_shops_path) ? "shop-img-lg" : "shop-img-sm"}", alt: "#{shop["name"]}の写真" %>
+              <p class="text-muted img-provided">画像提供:ホットペッパー グルメ</p>
+            </div>
+            <div class="card-body">
+              <p class="card-genre">
+                <%= shop["genre"]["name"] %>
+              </p>
+              <h5 class="card-title" id="shopname<%= i %>">
+                <%= shop["name"] %>
+              </h5>
+              <div class="card-area-access">
+                <p class="card-area-name">
+                  <%= shop["large_area"]["name"] %>
+                </p>
+                <p class="card-access">
+                  <%= shop["mobile_access"] %>
+                </p>
+              </div>
+              <p class="card-text">
+                <%= shop["catch"] %>
+              </p>
+              <div class="card-rate-wrapper">
+                <div id="search-rate-<%= shop["id"] %>"></div>
+                <span><%= Review.reviews_average(shop["id"]) %></span>
+                <div class="reviews-count">
+                  <i class="far fa-comments"></i>
+                  <p><%= Review.reviews_count(shop["id"]) %>件</p>
+                </div>
+                <%= render "searches/search_rate", shop: shop %>
+              </div>
+              <% if current_page?(around_shops_path) && Review.represent_review(shop["id"]).present? %>
+                <div class="represent-review">
+                  <p><%= Review.represent_review(shop["id"])[0] %></p>
+                  <p><%= truncate(Review.represent_review(shop["id"])[1], length: 25) %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <% if current_page?(around_shops_path) %>
+            <div class="shop-marker-num fa-stack">
+              <i class="fas fa-map-marker fa-stack-2x"></i>
+              <p class="fa-stack-1x"><%= i + 1 %></p>
+            </div>
+          <% elsif current_page?(favorites_path) %>
+            <object class="favorite-delete">
+              <%= link_to favorite_path(shop_id: shop["id"], id: current_user.favorite_id(shop["id"])), data: { confirm: 'お気に入りから削除しますか?' }, method: :delete do %>
+                <i class="fas fa-bookmark"></i>
+              <% end %>
+            </object>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="api-credit">
+  <%= link_to image_tag("http://webservice.recruit.co.jp/banner/hotpepper-s.gif", alt: "ホットペッパー Webサービス", width: 135, height: 17, border: 0, title: "ホットペッパー Webサービス" ), "http://webservice.recruit.co.jp/" %>
+</div>

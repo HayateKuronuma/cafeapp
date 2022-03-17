@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def favorited_by?(shop_id)
     favorites.where(shop_id: shop_id).exists?
   end
+
+  def favorite_id(shop_id)
+    favorites.find_by(shop_id: shop_id).id
+  end
 end
