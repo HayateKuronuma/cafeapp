@@ -18,13 +18,16 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    Favorite.create(user_id: current_user.id, shop_id: params[:shop_id])
+    @favorite = Favorite.new(user_id: current_user.id, shop_id: params[:shop_id])
     @shop_id = params[:shop_id]
-    @favorite = current_user.favorites.find_by(shop_id: @shop_id)
-    flash.now[:notice] = "お気に入りに登録しました"
-    respond_to do |format|
-      format.html { redirect_to shop_path(shop_id: params[:shop_id]) }
-      format.js
+    if @favorite.save
+      flash.now[:notice] = "お気に入りに登録しました"
+      respond_to do |format|
+        format.html { redirect_to shop_path(shop_id: params[:shop_id]) }
+        format.js
+      end
+    else
+      render "favorite_error"
     end
   end
 
@@ -32,7 +35,6 @@ class FavoritesController < ApplicationController
     path = Rails.application.routes.recognize_path(request.referer)
     Favorite.find_by(id: params[:id]).destroy
     @shop_id = params[:shop_id]
-    flash.now[:alert] = "お気に入りを削除しました"
     if path[:controller] == "shops" && path[:action] == "show"
       flash.now[:alert] = "お気に入りを削除しました"
       respond_to do |format|
