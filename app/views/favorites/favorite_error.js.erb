@@ -1,0 +1,4 @@
+$(function(){
+    console.log("<%= j(render "devise/shared/error_messages", resource: @favorite) %>")
+    $("#favorite-error").html("<%= j(render "devise/shared/error_messages", resource: @favorite) %>");
+  })

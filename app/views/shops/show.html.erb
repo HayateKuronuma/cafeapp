@@ -1,5 +1,6 @@
 <div class="main-wrapper">
-  <div class="container" >
+  <div class="container">
+    <div id="favorite-error"></div>
     <div class="shop-header-contents">
       <div class="shop-header-contents-inner">
         <div class="logo-title-wrapper">
@@ -15,10 +16,13 @@
           </div>
         </div>
         <div class="shop-headerbtn-wrapper">
-          <%= link_to "お気に入りに保存", @shop["urls"]["pc"], class: "btn favorite-btn" %>
+          <div class="favorite-btn-wrapper" id="favorite-<%= @shop_id %>">
+            <%= render "favorite", shop_id: @shop_id, favorite: @favorite %>
+          </div>
           <%= link_to "HOT PEPPERで見る", @shop["urls"]["pc"], class: "btn btn-primary hotpepper-btn" %>
         </div>
       </div>
+      <p class="text-muted img-provided">画像提供:ホットペッパー グルメ</p>
       <div class="shop-header-info">
         <ul class="shop-header-infoinner">
           <li>

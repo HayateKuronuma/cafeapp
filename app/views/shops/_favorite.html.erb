@@ -1,0 +1,5 @@
+<% if current_user.favorited_by?(shop_id) %>
+  <%= link_to "お気に入り解除", favorite_path(shop_id: shop_id, id: favorite.id), method: :delete, class: "btn common-fav-btn delete-favorite-btn", remote: true %>
+<% else %>
+  <%= link_to "お気に入りに保存", favorites_path(shop_id: shop_id), method: :post, class: "btn common-fav-btn favorite-btn", remote: true %>
+<% end %>

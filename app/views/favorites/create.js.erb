@@ -1,0 +1,4 @@
+$(function(){
+  $("#flash-message").html("<%= j(render "shared/flash") %>");
+  $("#favorite-<%= @shop_id %>").html("<%= j(render "shops/favorite", shop_id: @shop_id, favorite: @favorite) %>");
+})

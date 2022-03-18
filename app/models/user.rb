@@ -9,4 +9,13 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :reviews, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
+  def favorited_by?(shop_id)
+    favorites.where(shop_id: shop_id).exists?
+  end
+
+  def favorite_id(shop_id)
+    favorites.find_by(shop_id: shop_id).id
+  end
 end
