@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
         format.js
       end
     else
-      render "error"
+      render "review_error"
     end
   end
 
@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
         format.js
       end
     else
-      render "error"
+      render "review_error"
     end
   end
 
