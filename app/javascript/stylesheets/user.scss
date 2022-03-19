@@ -131,11 +131,14 @@
 
 .side-bar-link {
   padding: 1rem;
-  border-right: 6px solid #ffa35f;
   background-color: #faf4e6;
   color: #212529;
   font-size: 1.5rem;
   &:hover {
     background-color: #fffbf4;
   }
+}
+
+.active {
+  border-right: 6px solid #ffa35f;
 }
