@@ -88,6 +88,7 @@
           <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :shop_id, value: @shop_id %>
+          <%= f.hidden_field :shop_name, value: @shop["name"] %>
           <%= f.submit "投稿する", class: "btn md-btn btn-primary" %>
         </div>
       <% end %>
