@@ -9,7 +9,7 @@
         <div class="right-nav-wrapper">
           <%= link_to "お気に入り一覧", favorites_path, class: "header-btn md-btn" %>
           <div class="line"></div>
-          <%= link_to "マイページ", root_path, class: "header-btn md-btn" %>
+          <%= link_to "マイページ", edit_user_registration_path, class: "header-btn md-btn" %>
           <div class="line"></div>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-btn md-btn" %>
         </div>
@@ -19,17 +19,6 @@
           <% else %>
             <%= image_tag "/default_icon.jpg", id: "current-user-img" %>
           <% end %>
-          <ul class="header-nav-menu" id="nav-menu">
-            <li>
-              <%= link_to "お気に入り一覧", favorites_path %>
-            </li>
-            <li>
-              <%= link_to "設定", root_path %>
-            </li>
-            <li>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            </li>
-          </ul>
         </div>
       </div>
     <% else %>
