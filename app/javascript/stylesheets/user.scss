@@ -1,3 +1,38 @@
+.user-edit-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.user-edit-frame {
+  display: flex;
+  justify-content: center;
+}
+
+.user-edit-inner {
+  margin-top: 5rem;
+  width: 50%;
+  .field {
+    margin-top: 0.5rem;
+  }
+  .actions {
+    margin-top: 1rem;
+  }
+}
+
+.account-delete-title {
+  margin-top: 2rem;
+}
+
+.account-delete-text {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.button_to {
+  display: inline-block;
+}
+
 .user-main-wrapper {
   flex-grow: 1;
   position: relative;
@@ -74,5 +109,23 @@
   text-align: center;
   a {
     margin-top: 15px;
+  }
+}
+
+.side-bar-wrapper {
+  width: 15%;
+  ul {
+    margin-top: 2rem;
+  }
+}
+
+.side-bar-link {
+  font-size: 1.5rem;
+    padding: 1rem;
+    background-color: #faf4e6;
+    border-right: 6px solid #ffa35f;
+    color: #212529;
+  &:hover {
+    background-color: #fffbf4;
   }
 }
