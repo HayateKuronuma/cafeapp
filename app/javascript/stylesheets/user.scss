@@ -1,6 +1,6 @@
 .user-edit-wrapper {
-  flex-grow: 1;
   display: flex;
+  flex-grow: 1;
   justify-content: center;
 }
 
@@ -10,14 +10,26 @@
 }
 
 .user-edit-inner {
-  margin-top: 5rem;
   width: 50%;
+  margin-top: 5rem;
   .field {
-    margin-top: 0.5rem;
+    margin-top: .5rem;
   }
   .actions {
     margin-top: 1rem;
   }
+}
+
+.user-favorite-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+.user-favorite-inner {
+  width: 85%;
+  margin: 0 auto;
 }
 
 .account-delete-title {
@@ -55,9 +67,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-45%, -50%);
-        -ms-transform: translate(-45%, -50%);
-            transform: translate(-45%, -50%);
+    transform: translate(-45%, -50%);
     margin: 0;
     padding: 15px;
     border-radius: 50%;
@@ -120,11 +130,11 @@
 }
 
 .side-bar-link {
+  padding: 1rem;
+  border-right: 6px solid #ffa35f;
+  background-color: #faf4e6;
+  color: #212529;
   font-size: 1.5rem;
-    padding: 1rem;
-    background-color: #faf4e6;
-    border-right: 6px solid #ffa35f;
-    color: #212529;
   &:hover {
     background-color: #fffbf4;
   }
