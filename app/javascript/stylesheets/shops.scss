@@ -179,7 +179,7 @@
   }
 }
 
-.review-user-header {
+.review-user-header, .review-shop-header {
   display: flex;
   align-items: center;
   border-bottom: 2px solid #ebe8d9;
@@ -197,7 +197,7 @@
   }
 }
 
-.review-user-name {
+.review-user-name, .review-shop-name {
   flex-grow: 1;
   font-size: 1.5rem;
   text-align: left;

@@ -1,3 +1,22 @@
-// Place all the styles related to the reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.review-shop-name {
+  a {
+    &:hover {
+      color: orange;
+    }
+  }
+}
+
+.rv-comment {
+  font-size: 1.5rem;
+}
+
+.user-review-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.user-review-inner {
+  width: 70%;
+  margin: 5rem auto 0 auto;
+}
