@@ -13,10 +13,35 @@
   width: 50%;
   margin-top: 5rem;
   .field {
-    margin-top: .5rem;
+    margin-top: 1rem;
+  }
+  div {
+    &:first-child {
+      margin-top: 2rem;
+    }
   }
   .actions {
     margin-top: 1rem;
+  }
+}
+
+.edit-current-user-img {
+  display: flex;
+  align-items: flex-end;
+  input {
+    font-size: 1rem!important;
+  }
+}
+
+.edit-current-user-img {
+  img {
+    width: 80px;
+    height: 80px;
+    margin: 0 16px;
+    padding: 2px;
+    border-radius: 50px;
+    -o-object-fit: cover;
+      object-fit: cover;
   }
 }
 
