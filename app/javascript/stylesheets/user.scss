@@ -1,3 +1,75 @@
+.user-edit-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.user-edit-frame {
+  display: flex;
+  justify-content: center;
+}
+
+.user-edit-inner {
+  width: 50%;
+  margin-top: 5rem;
+  .field {
+    margin-top: 1rem;
+  }
+  div {
+    &:first-child {
+      margin-top: 2rem;
+    }
+  }
+  .actions {
+    margin-top: 1rem;
+  }
+}
+
+.edit-current-user-img {
+  display: flex;
+  align-items: flex-end;
+  input {
+    font-size: 1rem!important;
+  }
+}
+
+.edit-current-user-img {
+  img {
+    width: 80px;
+    height: 80px;
+    margin: 0 16px;
+    padding: 2px;
+    border-radius: 50px;
+    -o-object-fit: cover;
+      object-fit: cover;
+  }
+}
+
+.user-favorite-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+.user-favorite-inner {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.account-delete-title {
+  margin-top: 2rem;
+}
+
+.account-delete-text {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.button_to {
+  display: inline-block;
+}
+
 .user-main-wrapper {
   flex-grow: 1;
   position: relative;
@@ -20,9 +92,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-45%, -50%);
-        -ms-transform: translate(-45%, -50%);
-            transform: translate(-45%, -50%);
+    transform: translate(-45%, -50%);
     margin: 0;
     padding: 15px;
     border-radius: 50%;
@@ -75,4 +145,25 @@
   a {
     margin-top: 15px;
   }
+}
+
+.side-bar-wrapper {
+  width: 15%;
+  ul {
+    margin-top: 2rem;
+  }
+}
+
+.side-bar-link {
+  padding: 1rem;
+  background-color: #faf4e6;
+  color: #212529;
+  font-size: 1.5rem;
+  &:hover {
+    background-color: #fffbf4;
+  }
+}
+
+.active {
+  border-right: 6px solid #ffa35f;
 }

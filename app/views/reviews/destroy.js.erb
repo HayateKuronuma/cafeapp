@@ -1,5 +1,12 @@
-$(function(){
-  $("#shop-review-content").html("<%= j(render"reviews", reviews: @reviews) %>");
-  $("#flash-message").html("<%= j(render "shared/flash") %>");
-  $("#shop-avg-rate").html("<%= j(render "shared/star_rate", shop_id: @shop_id, reviews: @reviews) %>");
-})
+<% if @path[:controller] == "shops" && @path[:action] == "show" %>
+  $(function(){
+    $("#shop-review-content").html("<%= j(render"reviews", reviews: @reviews) %>");
+    $("#flash-message").html("<%= j(render "shared/flash") %>");
+    $("#shop-avg-rate").html("<%= j(render "shared/star_rate", shop_id: @shop_id, reviews: @reviews) %>");
+  })
+<% elsif @path[:controller] == "reviews" && @path[:action] == "index" %>
+    $(function(){
+    $("#user-review-inner").html("<%= j(render "my_review_index", reviews: @my_reviews) %>");
+    $("#flash-message").html("<%= j(render "shared/flash") %>");
+  })
+<% end %>

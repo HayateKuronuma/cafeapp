@@ -1,0 +1,19 @@
+<div class="side-bar-wrapper">
+  <ul>
+    <%= link_to edit_user_registration_path do %>
+      <li class="side-bar-link <%= "active" if current_page?(edit_user_registration_path) %>">
+        アカウント情報
+      </li>
+    <% end %>
+    <%= link_to favorites_path do %>
+      <li class="side-bar-link <%= "active" if current_page?(favorites_path) %>">
+        お気に入り一覧
+      </li>
+    <% end %>
+    <%= link_to  reviews_path do %>
+      <li class="side-bar-link <%= "active" if current_page?(reviews_path) %>">
+        マイレビュー
+      </li>
+    <% end %>
+  </ul>
+</div>
