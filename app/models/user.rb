@@ -29,7 +29,7 @@ class User < ApplicationRecord
 
   def validate_avatar
     return unless avatar.attached?
-    if avatar.blob.byte_size > 2.megabytes
+    if avatar.blob.byte_size > 1.megabytes
       errors.add(:avatar, 'のサイズは2MBまでです')
     elsif !image?
       errors.add(:avatar, 'が対応している画像データではありません')
