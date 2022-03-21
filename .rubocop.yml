@@ -54,3 +54,6 @@ Style/EmptyLinesAroundMethodBody:
 
 Style/EmptyLinesAroundBlockBody:
   Enabled: true
+
+Style/SpaceInsideHashLiteralBraces:
+  Enabled: true
