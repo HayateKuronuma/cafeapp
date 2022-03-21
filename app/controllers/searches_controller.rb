@@ -14,7 +14,7 @@ class SearchesController < ApplicationController
       "lat" => @lat,
       "lng" => @lng,
       "pet" => 1,
-      "format": "json"
+      format: "json"
     }
     response = client.get(url, query)
     @results = JSON.parse(response.body)

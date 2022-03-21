@@ -13,14 +13,14 @@ class Review < ApplicationRecord
   }, presence: true
 
   def self.reviews_average(shop_id)
-    self.where(shop_id: shop_id).average(:rate).to_f.round(RATE_AVERAGE_ROUNDED_OUT_DIGIT)
+    where(shop_id: shop_id).average(:rate).to_f.round(RATE_AVERAGE_ROUNDED_OUT_DIGIT)
   end
 
   def self.reviews_count(shop_id)
-    self.where(shop_id: shop_id).size
+    where(shop_id: shop_id).size
   end
 
   def self.represent_review(shop_id)
-    self.where(shop_id: shop_id).order(created_at: "DESC").pluck(:title, :comment).flatten
+    where(shop_id: shop_id).order(created_at: "DESC").pluck(:title, :comment).flatten
   end
 end
