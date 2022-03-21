@@ -1,0 +1,55 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  DisabledByDefault: true
+  Exclude:
+    - 'gems/**/*'
+    - 'node_modules/**/*'
+    - 'log/**/*'
+    - 'tmp/**/*'
+    - 'bin/*'
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'spec/**/*'
+  NewCops: enable
+
+Rails:
+  Enabled: true
+
+Bundler:
+  Enabled: true
+
+Gemspec:
+  Enabled: true
+
+Lint:
+  Enabled: true
+
+Performance:
+  Enabled: true
+
+Security:
+  Enabled: true
+
+Layout/SpaceBeforeComma:
+  Enabled: true
+
+Style/RedundantSelf:
+  Enabled: true
+
+Style/EmptyLines:
+  Enabled: true
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: true
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: true
+
+Style/EmptyLinesAroundMethodBody:
+  Enabled: true
+
+Style/EmptyLinesAroundBlockBody:
+  Enabled: true
