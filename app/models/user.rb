@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
 
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, presence: true
   validates :name, uniqueness: true, presence: true
   validate :validate_avatar
   validate :password_complexity
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   def favorited_by?(shop_id)
-    favorites.where(shop_id: shop_id).exists?
+    favorites.exists?(shop_id: shop_id)
   end
 
   def favorite_id(shop_id)

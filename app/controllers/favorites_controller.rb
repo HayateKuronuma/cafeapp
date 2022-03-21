@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
     query = {
       "key" => Rails.application.credentials.api[:hotpepper_api],
       "id" => @favorites_shop_id,
-      "format": "json"
+      format: "json"
     }
     response = client.get(url, query)
     @results = JSON.parse(response.body)
