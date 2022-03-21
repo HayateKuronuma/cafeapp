@@ -13,6 +13,7 @@ AllCops:
     - 'vendor/**/*'
     - 'db/**/*'
     - 'spec/**/*'
+    - 'config/environments/*'
   NewCops: enable
 
 Rails:
