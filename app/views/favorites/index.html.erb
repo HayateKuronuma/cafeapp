@@ -1,3 +1,4 @@
+<% provide(:title, "お気に入り一覧") %>
 <div class="user-favorite-wrapper">
   <%= render "shared/sidebar" %>
   <div class="container">
@@ -6,7 +7,11 @@
         <h1>お気に入り一覧</h1>
         <p>※20件まで保存できます</p>
       </div>
-      <%= render "shared/card", shops: @shops %>
+      <% if @shops.present? %>
+        <%= render "shared/card", shops: @shops %>
+      <% else %>
+        <p class="no-favorites">現在お気に入り登録はありません</p>
+      <% end %>
     </div>
   </div>
 </div>
