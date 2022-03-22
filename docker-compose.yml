@@ -20,7 +20,7 @@ services:
     environment:
       - TZ='Asia/Tokyo'
       - WEBPACKER_DEV_SERVER_HOST=webpacker
-      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
+      - SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub
     env_file:
       - .env
     tty: true
@@ -40,6 +40,8 @@ services:
       - '127.0.0.1:3035:3035'
   selenium_chrome:
     image: selenium/standalone-chrome-debug
+    ports:
+      - 4444:4444
     logging:
       driver: none
   mysql:
