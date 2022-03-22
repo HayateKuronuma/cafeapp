@@ -1,5 +1,5 @@
 <div class="row search-result-wrapper">
-  <% @shops.each_with_index do |shop, i| %>
+  <% shops.each_with_index do |shop, i| %>
     <div class="card-content">
       <%= link_to shop_path(shop_id: shop["id"]) do %>
         <div class="card col-12 card-frame <%= "align-center" if current_page?(around_shops_path) %>">
