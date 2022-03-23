@@ -3,7 +3,10 @@ volumes:
   mysql_data:
   public_data:
   tmp_data:
+    driver: local
   gem_data:
+  log_data:
+    driver: local
 
 services:
   app:
@@ -16,7 +19,7 @@ services:
     volumes:
       - .:/cafeapp
       - gem_data:/usr/local/bundle
-      - /cafeapp/log
+      - log_data:/var/log/nginx
     environment:
       - TZ='Asia/Tokyo'
       - WEBPACKER_DEV_SERVER_HOST=webpacker
