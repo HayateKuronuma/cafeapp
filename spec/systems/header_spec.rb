@@ -23,9 +23,9 @@ RSpec.describe "HeaderFooterLayouts", type: :system do
         expect(page.current_path).to eq edit_user_registration_path
       end
 
-      it 'ログアウトをクリックするとrootにリダイレクトすること' do
+      it 'ログアウトをクリックすると/users/sign_inに遷移すること' do
         click_link 'ログアウト'
-        expect(page.current_path).to eq root_path
+        expect(page.current_path).to eq new_user_session_path
       end
     end
 
@@ -39,12 +39,12 @@ RSpec.describe "HeaderFooterLayouts", type: :system do
         expect(page.current_path).to eq root_path
       end
 
-      it 'ログインをクリックするとログインページに遷移すること'  do
+      it 'ログインをクリックすると/users/sign_inに遷移すること'  do
         click_link 'ログイン'
         expect(page.current_path).to eq new_user_session_path
       end
 
-      it '登録するをクリックすると新規登録ページに遷移すること' do
+      it '登録するをクリックすると/users/sign_upに遷移すること' do
         click_link '登録する'
         expect(page.current_path).to eq new_user_registration_path
       end
