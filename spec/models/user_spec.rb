@@ -72,4 +72,21 @@ RSpec.describe User, type: :model do
     expect(user2).to be_invalid
     expect(user2.errors[:password]).to include("は英数字混合である必要があります")
   end
+
+  it 'avatarの拡張子が対応していない時登録できないこと' do
+    user2.avatar =  Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/testimage.gif'))
+    expect(user2).to be_invalid
+    expect(user2.errors[:avatar]).to include("が対応している画像データではありません")
+  end
+
+  it 'avatarのファイルサイズが1Mより大きい時、登録できないこと' do
+    user2.avatar =  Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/test2m.jpg'))
+    expect(user2).to be_invalid
+    expect(user2.errors[:avatar]).to include("のサイズは1MBまでです")
+  end
+
+  it 'avatarが対応ファイルの時登録できること' do
+    user2.avatar =  Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/testimage.jpeg'))
+    expect(user2).to be_valid
+  end
 end
