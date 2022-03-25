@@ -5,8 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
 
+  validates :name, uniqueness: true, presence: true, length: { maximum: 40 }
   validates :email, uniqueness: true, presence: true
-  validates :name, uniqueness: true, presence: true
   validate :validate_avatar
   validate :password_complexity
 
@@ -30,7 +30,7 @@ class User < ApplicationRecord
   def validate_avatar
     return unless avatar.attached?
     if avatar.blob.byte_size > 1.megabytes
-      errors.add(:avatar, 'のサイズは2MBまでです')
+      errors.add(:avatar, 'のサイズは1MBまでです')
     elsif !image?
       errors.add(:avatar, 'が対応している画像データではありません')
     end

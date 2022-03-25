@@ -1,98 +1,104 @@
-<% provide(:title,  @shop["name"]) %>
 <div class="main-wrapper">
-  <div class="container">
-    <div id="favorite-error"></div>
-    <div class="shop-header-contents">
-      <div class="shop-header-contents-inner">
-        <div class="logo-title-wrapper">
-          <div class="header-logo">
-            <%= image_tag @shop["logo_image"], class: "logo-image", alt: "#{@shop["name"]}のロゴ" %>
-          </div>
-          <div class="shoptitle">
-            <span class="title-crown"><%= @shop["genre"]["catch"] %></span>
-            <h3 class="shop-name"><%= @shop["name"] %></h3>
-            <div id="shop-avg-rate">
-              <%= render "shared/star_rate", shop_id: @shop_id, reviews: @reviews %>
+  <% if @shop.present? %>
+    <% provide(:title,  @shop["name"]) %>
+    <div class="container">
+      <div id="favorite-error"></div>
+      <div class="shop-header-contents">
+        <div class="shop-header-contents-inner">
+          <div class="logo-title-wrapper">
+            <div class="header-logo">
+              <%= image_tag @shop["logo_image"], class: "logo-image", alt: "#{@shop["name"]}のロゴ" %>
+            </div>
+            <div class="shoptitle">
+              <span class="title-crown"><%= @shop["genre"]["catch"] %></span>
+              <h3 class="shop-name"><%= @shop["name"] %></h3>
+              <div id="shop-avg-rate">
+                <%= render "shared/star_rate", shop_id: @shop_id, reviews: @reviews %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="shop-headerbtn-wrapper">
-          <div class="favorite-btn-wrapper" id="favorite-<%= @shop_id %>">
-            <%= render "favorite", shop_id: @shop_id, favorite: @favorite %>
+          <div class="shop-headerbtn-wrapper">
+            <div class="favorite-btn-wrapper" id="favorite-<%= @shop_id %>">
+              <%= render "favorite", shop_id: @shop_id, favorite: @favorite %>
+            </div>
+            <%= link_to "HOT PEPPERで見る", @shop["urls"]["pc"], class: "btn btn-primary hotpepper-btn" %>
           </div>
-          <%= link_to "HOT PEPPERで見る", @shop["urls"]["pc"], class: "btn btn-primary hotpepper-btn" %>
+        </div>
+        <p class="text-muted img-provided">画像提供:ホットペッパー グルメ</p>
+        <div class="shop-header-info">
+          <ul class="shop-header-infoinner">
+            <li>
+              <dl>
+                <dt>最寄駅：</dt>
+                <dd><%= @shop["station_name"] %></dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>ジャンル：</dt>
+                <dd><%= @shop["genre"]["name"] %></dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>定休日：</dt>
+                <dd><%= @shop["close"] %></dd>
+              </dl>
+            </li>
+          </ul>
         </div>
       </div>
-      <p class="text-muted img-provided">画像提供:ホットペッパー グルメ</p>
-      <div class="shop-header-info">
-        <ul class="shop-header-infoinner">
-          <li>
-            <dl>
-              <dt>最寄駅：</dt>
-              <dd><%= @shop["station_name"] %></dd>
-            </dl>
-          </li>
-          <li>
-            <dl>
-              <dt>ジャンル：</dt>
-              <dd><%= @shop["genre"]["name"] %></dd>
-            </dl>
-          </li>
-          <li>
-            <dl>
-              <dt>定休日：</dt>
-              <dd><%= @shop["close"] %></dd>
-            </dl>
-          </li>
-        </ul>
+      <div id="shop-review-content">
+        <%= render "reviews/reviews", reviews: @reviews %>
       </div>
     </div>
-    <div id="shop-review-content">
-      <%= render "reviews/reviews", reviews: @reviews %>
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reviewModalLabel">新規投稿</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <%= form_with(model: @review, local: false) do |f| %>
+          <div class="modal-body">
+            <div id="review-error">
+              <%= render "devise/shared/error_messages", resource: f.object %>
+            </div>
+            <div class="form-group" id="star">
+              <%= f.label :rate, "評価" %>
+              <%= f.hidden_field :rate, id: :review_star %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :title, class: "form-control review-form", placeholder: "タイトルを入力してください" %>
+            </div>
+            <div class="form-group">
+              <%= f.text_area :comment, class: "form-control review-form", placeholder: "本文を入力してください" %>
+            </div>
+            <script>
+                $('#star').raty({
+                  size: 36,
+                  starOff:  "star-off.png",
+                  starOn : "star-on.png",
+                  starHalf: "star-half.png",
+                  scoreName: "review[rate]",
+                  half: true,
+                });
+            </script>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :shop_id, value: @shop_id %>
+            <%= f.hidden_field :shop_name, value: @shop["name"] %>
+            <%= f.submit "投稿する", class: "btn md-btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-container">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="reviewModalLabel">新規投稿</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <%= form_with(model: @review, local: false) do |f| %>
-        <div class="modal-body">
-          <div id="review-error">
-            <%= render "devise/shared/error_messages", resource: f.object %>
-          </div>
-          <div class="form-group" id="star">
-            <%= f.label :rate, "評価" %>
-            <%= f.hidden_field :rate, id: :review_star %>
-          </div>
-          <div class="form-group">
-            <%= f.text_field :title, class: "form-control review-form", placeholder: "タイトルを入力してください" %>
-          </div>
-          <div class="form-group">
-            <%= f.text_area :comment, class: "form-control review-form", placeholder: "本文を入力してください" %>
-          </div>
-          <script>
-              $('#star').raty({
-                size: 36,
-                starOff:  "star-off.png",
-                starOn : "star-on.png",
-                starHalf: "star-half.png",
-                scoreName: "review[rate]",
-                half: true,
-              });
-          </script>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :shop_id, value: @shop_id %>
-          <%= f.hidden_field :shop_name, value: @shop["name"] %>
-          <%= f.submit "投稿する", class: "btn md-btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <% elsif %>
+    <div class="no-params-error">
+      <p>店舗情報が取得できませんでした</p>
+      <p>検索ページからやり直してください</p>
+  <% end %>
 </div>
