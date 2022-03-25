@@ -21,10 +21,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @review = Review.find(params[:id])
-  end
-
   def update
     @review = Review.find(params[:id])
     @shop_id = @review.shop_id
