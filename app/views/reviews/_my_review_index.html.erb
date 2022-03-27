@@ -17,9 +17,9 @@
         <h5 class="rv-title" id="rv-title-<%= review.id %>"><%= review.title %></h5>
         <p class="rv-comment" id="rv-comment-<%= review.id %>"><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
         <div class="edit-delete-btn">
-          <%= link_to edit_review_path(review), 'data-bs-toggle': :"modal", 'data-bs-target': :"#reviewEditModal#{review.id}", remote: true do %>
+          <span data-bs-toggle="modal" data-bs-target="#reviewEditModal<%= review.id %>">
             <i class="far fa-edit"></i>
-          <% end %>
+          <span>
           <%= link_to review_path(review), data: { confirm: '削除しますか?' }, method: :delete, remote: true do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
