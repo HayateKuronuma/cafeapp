@@ -19,8 +19,8 @@
         <div class="edit-delete-btn">
           <span data-bs-toggle="modal" data-bs-target="#reviewEditModal<%= review.id %>">
             <i class="far fa-edit"></i>
-          <span>
-          <%= link_to review_path(review), data: { confirm: '削除しますか?' }, method: :delete, remote: true do %>
+          </span>
+          <%= link_to review_path(review), data: { confirm: '削除しますか?' }, class: "review-delete-btn", method: :delete, remote: true do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
         </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-              <%= f.submit "投稿する", class: "btn md-btn btn-primary" %>
+              <%= f.submit "更新する", class: "btn md-btn btn-primary" %>
             </div>
           <% end %>
         </div>
