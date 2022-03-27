@@ -1,6 +1,15 @@
 require 'rails_helper'
+require 'webmock/rspec'
 
 RSpec.describe "Reviews", type: :request do
+  before do
+    WebMock.stub_request(:get, "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/").
+    to_return(
+      body: File.read("./spec/fixtures/response.json"),
+      status: 200,
+    )
+  end
+
   describe "GET /reviews reviews#index" do
     let(:user) { create(:user) }
 

@@ -10,6 +10,7 @@ RSpec.describe "Reviews", type: :system do
       status: 200,
     )
   end
+
   describe '新規投稿 review#create' do
     let(:user) { create(:user) }
 
@@ -38,9 +39,9 @@ RSpec.describe "Reviews", type: :system do
         within('.shop-review-frame') do
           click_button '口コミを投稿する'
         end
-        find('#reviewModal').find('.star3').click
         fill_in 'review[title]', with: @title
         fill_in 'review[comment]', with: @comment
+        find('#reviewModal').find('.star3').click
         click_button '投稿する'
       end
 
