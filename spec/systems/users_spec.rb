@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe "Users", type: :system do
   describe '新規登録 registrations#create' do
     before { visit new_user_registration_path }
