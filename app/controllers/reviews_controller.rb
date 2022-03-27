@@ -44,7 +44,7 @@ class ReviewsController < ApplicationController
     @reviews = Review.where(shop_id: @shop_id).order(created_at: "DESC")
     @my_reviews = Review.where(user_id: current_user.id)
     @review.destroy
-    flash.now[:alert] = "投稿を削除しました"
+    flash.now[:notice] = "投稿を削除しました"
     respond_to do |format|
       format.html { redirect_to shop_path(shop_id: @review.shop_id) }
       format.js
