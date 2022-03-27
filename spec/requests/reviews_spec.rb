@@ -5,7 +5,7 @@ RSpec.describe "Reviews", type: :request do
   before do
     WebMock.stub_request(:get, "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/").
     to_return(
-      body: File.read("./spec/fixtures/response.json"),
+      body: File.read("./spec/fixtures/shop_response.json"),
       status: 200,
     )
   end
