@@ -154,7 +154,7 @@
     font-size: 2.2rem;
     line-height: normal;
   }
-  button {
+  button, a {
     margin-bottom: .5rem;
   }
 }
@@ -229,10 +229,13 @@
   .rv-comment {
     margin-top: 1.6rem;
   }
-  a {
+  a, span {
     padding: 0;
     color: #212529;
     font-size: 1.6rem;
+  }
+  span {
+    cursor: pointer;
   }
 }
 

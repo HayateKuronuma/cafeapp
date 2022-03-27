@@ -2,14 +2,12 @@
   <div class="shop-review-title">
     <%= image_tag "/review-image.png" %>
     <h5>みんなの口コミ</h5>
-    <% if reviews.exists? %>
-      <% if user_signed_in? %>
-        <button type="button" class="btn md-btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
-          口コミを投稿する
-        </button>
-      <% else %>
-        <%= link_to "口コミを投稿する", new_user_session_path, class: "btn-primary btn" %>
-      <% end %>
+    <% if reviews.exists? && user_signed_in? %>
+      <button type="button" class="btn md-btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
+        口コミを投稿する
+      </button>
+    <% elsif reviews.exists? %>
+      <%= link_to "口コミを投稿する", new_user_session_path, class: "btn-primary md-btn btn" %>
     <% end %>
   </div>
   <div class="review-wrapper">
@@ -38,10 +36,10 @@
               <p class="rv-comment" id="rv-comment-<%= review.id %>"><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
               <div class="edit-delete-btn">
                 <% if user_signed_in? && current_user.id == review.user_id %>
-                  <%= link_to edit_review_path(review), 'data-bs-toggle': :"modal", 'data-bs-target': :"#reviewEditModal#{review.id}", remote: true do %>
+                  <span data-bs-toggle="modal" data-bs-target="#reviewEditModal<%= review.id %>">
                     <i class="far fa-edit"></i>
-                  <% end %>
-                  <%= link_to review_path(review), data: { confirm: '削除しますか?' }, method: :delete, remote: true do %>
+                  </span>
+                  <%= link_to review_path(review), data: { confirm: '削除しますか?' }, class: "review-delete-btn", method: :delete, remote: true do %>
                     <i class="far fa-trash-alt"></i>
                   <% end %>
                 <% end %>
@@ -73,7 +71,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-                    <%= f.submit "投稿する", class: "btn md-btn btn-primary" %>
+                    <%= f.submit "更新する", class: "btn md-btn btn-primary" %>
                   </div>
                 <% end %>
               </div>

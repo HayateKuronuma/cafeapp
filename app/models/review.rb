@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   RATE_AVERAGE_ROUNDED_OUT_DIGIT = 1
+  GET_LATEST_REVIEW_MAX_NUMBER = 1
 
   belongs_to :user
   validates :title, presence: true
@@ -21,6 +22,6 @@ class Review < ApplicationRecord
   end
 
   def self.represent_review(shop_id)
-    where(shop_id: shop_id).order(created_at: "DESC").pluck(:title, :comment).flatten
+    where(shop_id: shop_id).order(created_at: "DESC").limit(GET_LATEST_REVIEW_MAX_NUMBER).pluck(:title, :comment).flatten
   end
 end

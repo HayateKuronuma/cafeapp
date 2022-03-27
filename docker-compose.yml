@@ -43,6 +43,7 @@ services:
       - '127.0.0.1:3035:3035'
   selenium_chrome:
     image: selenium/standalone-chrome-debug
+    shm_size: 256m
     ports:
       - 4444:4444
     logging:

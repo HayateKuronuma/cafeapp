@@ -1,0 +1,101 @@
+{
+  "results": {
+    "api_version": "1.26",
+    "results_available": 1,
+    "results_returned": "1",
+    "results_start": 1,
+    "shop": [
+      {
+        "access": "東急田園都市線池尻大橋駅東口より徒歩約11分/東急東横線，東京メトロ日比谷線中目黒駅西口１より徒歩約15分",
+        "address": "東京都目黒区東山２-４-１６",
+        "band": "不可",
+        "barrier_free": "なし",
+        "budget": {
+          "average": "4000円～5000円",
+          "code": "B008",
+          "name": "4001～5000円"
+        },
+        "budget_memo": "",
+        "capacity": 19,
+        "card": "利用可",
+        "catch": "シーン毎のおまかせ料理 女性に人気の果実酢",
+        "charter": "貸切可 ：15名様～",
+        "child": "お子様連れ歓迎",
+        "close": "日",
+        "coupon_urls": {
+          "pc": "https://www.hotpepper.jp/strJ001245046/map/?vos=nhppalsa000016",
+          "sp": "https://www.hotpepper.jp/strJ001245046/scoupon/?vos=nhppalsa000016"
+        },
+        "course": "あり",
+        "english": "あり",
+        "free_drink": "あり",
+        "free_food": "なし",
+        "genre": {
+          "catch": "旬食材を使った本格和食を楽しめます♪",
+          "code": "G001",
+          "name": "居酒屋"
+        },
+        "horigotatsu": "なし",
+        "id": "J001245046",
+        "karaoke": "なし",
+        "ktai_coupon": 0,
+        "large_area": {
+          "code": "Z011",
+          "name": "東京"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        },
+        "lat": 35.6488224625,
+        "lng": 139.6912275155,
+        "logo_image": "https://imgfp.hotp.jp/IMGH/32/07/P035273207/P035273207_69.jpg",
+        "lunch": "なし",
+        "middle_area": {
+          "code": "Y073",
+          "name": "池尻大橋・三軒茶屋・駒沢大学"
+        },
+        "midnight": "営業している",
+        "mobile_access": "東急田園都市線池尻大橋駅東口より徒歩約11分",
+        "name": "和食屋 だれかれ",
+        "name_kana": "わしょくやだれかれ",
+        "non_smoking": "全面禁煙",
+        "open": "月～土、祝日、祝前日: 17:30～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+        "other_memo": "",
+        "parking": "なし",
+        "party_capacity": 25,
+        "pet": "可",
+        "photo": {
+          "mobile": {
+            "l": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_168.jpg",
+            "s": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_100.jpg"
+          },
+          "pc": {
+            "l": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_238.jpg",
+            "m": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_168.jpg",
+            "s": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_58_s.jpg"
+          }
+        },
+        "private_room": "あり",
+        "service_area": {
+          "code": "SA11",
+          "name": "東京"
+        },
+        "shop_detail_memo": "ペット同伴はテラス席のみ可能です。",
+        "show": "なし",
+        "small_area": {
+          "code": "X146",
+          "name": "池尻大橋"
+        },
+        "station_name": "池尻大橋",
+        "tatami": "なし",
+        "tv": "なし",
+        "urls": {
+          "pc": "https://www.hotpepper.jp/strJ001245046/?vos=nhppalsa000016"
+        },
+        "wedding": "",
+        "wifi": "なし"
+      }
+    ]
+  }
+}

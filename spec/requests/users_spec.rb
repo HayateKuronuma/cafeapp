@@ -118,9 +118,7 @@ RSpec.describe "Users", type: :request do
     let(:user) { create(:user) }
 
     context 'ログイン済みユーザの場合' do
-      before do
-        sign_in user
-      end
+      before { sign_in user }
 
       context '無効な値の場合' do
         before do
@@ -182,6 +180,11 @@ RSpec.describe "Users", type: :request do
     let!(:user) { create(:user) }
 
     context '未ログインの場合' do
+      it 'ログイン画面へリダイレクトすること' do
+        delete user_registration_path
+        expect(response).to redirect_to new_user_session_path
+      end
+
       it '削除できないこと' do
         expect {
           delete user_registration_path

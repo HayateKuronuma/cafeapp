@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Favorites", type: :request do
+  before { WebMock.disable! }
+
   describe "GET /index" do
     let(:user) { create(:user) }
 

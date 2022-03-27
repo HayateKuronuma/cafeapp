@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = Favorite.where(user_id: current_user.id).order(created_at: "DESC")
-    @favorites_shop_id = @favorites.pluck(:shop_id)
+    @favorites_shop_id = @favorites.pluck(:shop_id).flatten
     client = HTTPClient.new
     url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/"
     query = {
