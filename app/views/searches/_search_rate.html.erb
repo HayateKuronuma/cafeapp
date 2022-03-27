@@ -176,7 +176,7 @@
 
           _attributesForIndex: function(i) {
             var name       = this._nameForIndex(i);
-            var attributes = { alt: i, src: this.opt.path + this.opt[name] };
+            var attributes = { class: `star${i}`, alt: i, src: this.opt.path + this.opt[name] };
 
             if (this.opt.starType !== 'img') {
               attributes = { 'data-alt': i, 'class': this.opt[name] };
