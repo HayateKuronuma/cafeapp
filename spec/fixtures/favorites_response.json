@@ -1,0 +1,283 @@
+{
+  "results": {
+    "api_version": "1.26",
+    "results_available": 26,
+    "results_returned": "10",
+    "results_start": 1,
+    "shop": [
+      {
+        "access": "東急田園都市線池尻大橋駅東口より徒歩約11分/東急東横線，東京メトロ日比谷線中目黒駅西口１より徒歩約15分",
+        "address": "東京都目黒区東山２-４-１６",
+        "band": "不可",
+        "barrier_free": "なし",
+        "budget": {
+          "average": "4000円～5000円",
+          "code": "B008",
+          "name": "4001～5000円"
+        },
+        "budget_memo": "",
+        "capacity": 19,
+        "card": "利用可",
+        "catch": "シーン毎のおまかせ料理 女性に人気の果実酢",
+        "charter": "貸切可 ：15名様～",
+        "child": "お子様連れ歓迎",
+        "close": "日",
+        "coupon_urls": {
+          "pc": "https://www.hotpepper.jp/strJ001245046/map/?vos=nhppalsa000016",
+          "sp": "https://www.hotpepper.jp/strJ001245046/scoupon/?vos=nhppalsa000016"
+        },
+        "course": "あり",
+        "english": "あり",
+        "free_drink": "あり",
+        "free_food": "なし",
+        "genre": {
+          "catch": "旬食材を使った本格和食を楽しめます♪",
+          "code": "G001",
+          "name": "居酒屋"
+        },
+        "horigotatsu": "なし",
+        "id": "J001245046",
+        "karaoke": "なし",
+        "ktai_coupon": 0,
+        "large_area": {
+          "code": "Z011",
+          "name": "東京"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        },
+        "lat": 35.6488224625,
+        "lng": 139.6912275155,
+        "logo_image": "https://imgfp.hotp.jp/IMGH/32/07/P035273207/P035273207_69.jpg",
+        "lunch": "なし",
+        "middle_area": {
+          "code": "Y073",
+          "name": "池尻大橋・三軒茶屋・駒沢大学"
+        },
+        "midnight": "営業している",
+        "mobile_access": "東急田園都市線池尻大橋駅東口より徒歩約11分",
+        "name": "和食屋 だれかれ",
+        "name_kana": "わしょくやだれかれ",
+        "non_smoking": "全面禁煙",
+        "open": "月～土、祝日、祝前日: 17:30～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+        "other_memo": "",
+        "parking": "なし",
+        "party_capacity": 25,
+        "pet": "可",
+        "photo": {
+          "mobile": {
+            "l": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_168.jpg",
+            "s": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_100.jpg"
+          },
+          "pc": {
+            "l": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_238.jpg",
+            "m": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_168.jpg",
+            "s": "https://imgfp.hotp.jp/IMGH/63/56/P035346356/P035346356_58_s.jpg"
+          }
+        },
+        "private_room": "あり",
+        "service_area": {
+          "code": "SA11",
+          "name": "東京"
+        },
+        "shop_detail_memo": "ペット同伴はテラス席のみ可能です。",
+        "show": "なし",
+        "small_area": {
+          "code": "X146",
+          "name": "池尻大橋"
+        },
+        "station_name": "池尻大橋",
+        "tatami": "なし",
+        "tv": "なし",
+        "urls": {
+          "pc": "https://www.hotpepper.jp/strJ001245046/?vos=nhppalsa000016"
+        },
+        "wedding": "",
+        "wifi": "なし"
+      },
+      {
+        "access": "東横線中目黒駅 西口１番出口 徒歩8分日比谷線中目黒駅 西口１番出口 徒歩8分田園都市線池尻大橋駅 徒歩12分",
+        "address": "東京都目黒区東山２-3-5-ビラアベックスタワーB1",
+        "band": "不可",
+        "barrier_free": "なし ：申し訳ございません、当店にはご用意しておりませんが不便な事などございましたらお申しつけ下さい。",
+        "budget": {
+          "average": "4000円",
+          "code": "B003",
+          "name": "3001～4000円"
+        },
+        "budget_memo": "マスター・VISA・アメックス・DINERS・JCB使えます。",
+        "capacity": 60,
+        "card": "利用可",
+        "catch": "最高級のラム！ 半個室もご用意",
+        "charter": "貸切可 ：50名以上可",
+        "child": "お子様連れ歓迎 ：小さなお子様をお連れの方はお座敷へご案内致します、お気軽にお申し付けください！！",
+        "close": "ご不明点等、お気軽に店舗へご相談ください。団体様でネット予約が取れない場合でも、お電話にてご相談ください。",
+        "coupon_urls": {
+          "pc": "https://www.hotpepper.jp/strJ001178490/map/?vos=nhppalsa000016",
+          "sp": "https://www.hotpepper.jp/strJ001178490/scoupon/?vos=nhppalsa000016"
+        },
+        "course": "あり",
+        "english": "なし",
+        "free_drink": "あり ：ご予約お待ちしております！",
+        "free_food": "あり ：ご予約お待ちしております！",
+        "genre": {
+          "catch": "北海道産直送ジンギスカン本格炭火焼肉",
+          "code": "G008",
+          "name": "焼肉・ホルモン"
+        },
+        "horigotatsu": "なし ：掘りごたつはございませんが、ごゆっくりしてください！",
+        "id": "J001178490",
+        "karaoke": "なし",
+        "ktai_coupon": 0,
+        "large_area": {
+          "code": "Z011",
+          "name": "東京"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        },
+        "lat": 35.6487199956,
+        "lng": 139.692036062,
+        "logo_image": "https://imgfp.hotp.jp/IMGH/06/30/P027800630/P027800630_69.jpg",
+        "lunch": "あり",
+        "middle_area": {
+          "code": "Y040",
+          "name": "恵比寿・中目黒・代官山・広尾"
+        },
+        "midnight": "営業していない",
+        "mobile_access": "中目黒西口1番出口徒歩8分ﾊﾞｽ渋谷～菅刈小学校前すぐ",
+        "name": "中目黒 ひつじ 東山店",
+        "name_kana": "なかめぐろひつじ　ひがしやまてん",
+        "non_smoking": "全面禁煙",
+        "open": "月～金、祝前日: 18:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:00）土、日、祝日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+        "other_memo": "ご予約お待ちしております！",
+        "parking": "なし ：近隣にコインパーキングあり",
+        "party_capacity": 60,
+        "pet": "可",
+        "photo": {
+          "mobile": {
+            "l": "https://imgfp.hotp.jp/IMGH/65/72/P038996572/P038996572_168.jpg",
+            "s": "https://imgfp.hotp.jp/IMGH/65/72/P038996572/P038996572_100.jpg"
+          },
+          "pc": {
+            "l": "https://imgfp.hotp.jp/IMGH/65/72/P038996572/P038996572_238.jpg",
+            "m": "https://imgfp.hotp.jp/IMGH/65/72/P038996572/P038996572_168.jpg",
+            "s": "https://imgfp.hotp.jp/IMGH/65/72/P038996572/P038996572_58_s.jpg"
+          }
+        },
+        "private_room": "なし ：個室はございませんが、60名様同じお部屋でご利用頂けます",
+        "service_area": {
+          "code": "SA11",
+          "name": "東京"
+        },
+        "shop_detail_memo": "わんちゃん連れも大歓迎です！！！！！！！",
+        "show": "なし",
+        "small_area": {
+          "code": "X121",
+          "name": "中目黒"
+        },
+        "station_name": "中目黒",
+        "tatami": "あり ：最大8名様までで入れます！！",
+        "tv": "なし",
+        "urls": {
+          "pc": "https://www.hotpepper.jp/strJ001178490/?vos=nhppalsa000016"
+        },
+        "wedding": "ご希望がございましたらご相談下さい♪お祝いします♪",
+        "wifi": "なし"
+      },
+      {
+        "access": "ＪＲ 渋谷駅 南口徒歩15 京王井の頭線 神泉駅・駒場東大前駅 徒歩5分 東急田園都市線 池尻大橋駅 徒歩10 ,淡島通り沿い",
+        "address": "東京都目黒区駒場１-16-12",
+        "band": "可",
+        "barrier_free": "なし",
+        "budget": {
+          "average": "3000円（通常平均）1900円（宴会平均） ※税抜価格",
+          "code": "B002",
+          "name": "2001～3000円"
+        },
+        "budget_memo": "テント席のみチャージ料金500円",
+        "capacity": 80,
+        "card": "利用可",
+        "catch": "各種宴会受け付けてます!  タクシークーポンあります",
+        "charter": "貸切可 ：10名 ～最大120名まで　ワンフロアから貸切承ります♪お気軽に！！ ",
+        "child": "お子様連れOK",
+        "close": "1/1は休業となります。",
+        "coupon_urls": {
+          "pc": "https://www.hotpepper.jp/strJ000245549/map/?vos=nhppalsa000016",
+          "sp": "https://www.hotpepper.jp/strJ000245549/scoupon/?vos=nhppalsa000016"
+        },
+        "course": "あり",
+        "english": "あり",
+        "free_drink": "あり ：1900円(2時間制/税抜)",
+        "free_food": "なし ：食べ放題はございません。",
+        "genre": {
+          "catch": "本格的ラテン料理 メニュー50種類以上 ",
+          "code": "G002",
+          "name": "ダイニングバー・バル"
+        },
+        "horigotatsu": "なし ：掘りごたつ席はございません。",
+        "id": "J000245549",
+        "karaoke": "なし",
+        "ktai_coupon": 0,
+        "large_area": {
+          "code": "Z011",
+          "name": "東京"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        },
+        "lat": 35.6555791276,
+        "lng": 139.6884447036,
+        "logo_image": "https://imgfp.hotp.jp/IMGH/13/77/P018631377/P018631377_69.jpg",
+        "lunch": "なし",
+        "middle_area": {
+          "code": "Y070",
+          "name": "下北沢・代々木上原"
+        },
+        "midnight": "営業している",
+        "mobile_access": "JR渋谷駅徒歩15分･神泉駅･駒場東大前駅 徒歩5分 ",
+        "name": "COSTA LATINA",
+        "name_kana": "コスタラティーナ",
+        "non_smoking": "禁煙席なし",
+        "open": "月～日、祝日、祝前日: 12:00～翌0:00",
+        "other_memo": "テレビ・プロジェクター・マイク・ミキサーあり！パーティーなどでご利用ください♪",
+        "parking": "あり ：お店の隣にワンコインパーキングあります。",
+        "party_capacity": 120,
+        "pet": "可",
+        "photo": {
+          "mobile": {
+            "l": "https://imgfp.hotp.jp/IMGH/27/48/P020782748/P020782748_168.jpg",
+            "s": "https://imgfp.hotp.jp/IMGH/27/48/P020782748/P020782748_100.jpg"
+          },
+          "pc": {
+            "l": "https://imgfp.hotp.jp/IMGH/27/48/P020782748/P020782748_238.jpg",
+            "m": "https://imgfp.hotp.jp/IMGH/27/48/P020782748/P020782748_168.jpg",
+            "s": "https://imgfp.hotp.jp/IMGH/27/48/P020782748/P020782748_58_s.jpg"
+          }
+        },
+        "private_room": "なし ：冬季：屋上にテント風のお座敷がございます(ヒーター完備で冬でもホッカホカです♪)※夏季：ビアガーデン",
+        "service_area": {
+          "code": "SA11",
+          "name": "東京"
+        },
+        "shop_detail_memo": "パーティー・各種宴会お承ります。",
+        "show": "あり",
+        "small_area": {
+          "code": "X252",
+          "name": "駒場東大前"
+        },
+        "station_name": "渋谷",
+        "tatami": "あり ：冬季：屋上にテント風のお座敷がございます(ヒーター完備で冬でもホッカホカです♪)※夏季：ビアガーデン",
+        "tv": "あり",
+        "urls": {
+          "pc": "https://www.hotpepper.jp/strJ000245549/?vos=nhppalsa000016"
+        },
+        "wedding": "OK　お気軽にお問い合わせください！",
+        "wifi": "なし"
+      }
+    ]
+  }
+}
