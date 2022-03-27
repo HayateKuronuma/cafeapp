@@ -18,9 +18,13 @@
             </div>
           </div>
           <div class="shop-headerbtn-wrapper">
-            <div class="favorite-btn-wrapper" id="favorite-<%= @shop_id %>">
-              <%= render "favorite", shop_id: @shop_id, favorite: @favorite %>
-            </div>
+            <% if user_signed_in? %>
+              <div class="favorite-btn-wrapper" id="favorite-<%= @shop_id %>">
+                <%= render "favorite", shop_id: @shop_id, favorite: @favorite %>
+              </div>
+            <% else %>
+              <%= link_to "お気に入りに保存", new_user_session_path, class: "btn common-fav-btn favorite-btn" %>
+            <% end %>
             <%= link_to "HOT PEPPERで見る", @shop["urls"]["pc"], class: "btn btn-primary hotpepper-btn" %>
           </div>
         </div>
@@ -52,50 +56,52 @@
         <%= render "reviews/reviews", reviews: @reviews %>
       </div>
     </div>
-    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-container">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="reviewModalLabel">新規投稿</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <% if user_signed_in? %>
+      <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-container">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reviewModalLabel">新規投稿</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <%= form_with(model: @review, local: false) do |f| %>
+              <div class="modal-body">
+                <div id="review-error">
+                  <%= render "devise/shared/error_messages", resource: f.object %>
+                </div>
+                <div class="form-group" id="star">
+                  <%= f.label :rate, "評価" %>
+                  <%= f.hidden_field :rate, id: :review_star %>
+                </div>
+                <div class="form-group">
+                  <%= f.text_field :title, class: "form-control review-form", placeholder: "タイトルを入力してください" %>
+                </div>
+                <div class="form-group">
+                  <%= f.text_area :comment, class: "form-control review-form", placeholder: "本文を入力してください" %>
+                </div>
+                <script>
+                    $('#star').raty({
+                      size: 36,
+                      starOff:  "star-off.png",
+                      starOn : "star-on.png",
+                      starHalf: "star-half.png",
+                      scoreName: "review[rate]",
+                      half: true,
+                    });
+                </script>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :shop_id, value: @shop_id %>
+                <%= f.hidden_field :shop_name, value: @shop["name"] %>
+                <%= f.submit "投稿する", class: "btn md-btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <%= form_with(model: @review, local: false) do |f| %>
-          <div class="modal-body">
-            <div id="review-error">
-              <%= render "devise/shared/error_messages", resource: f.object %>
-            </div>
-            <div class="form-group" id="star">
-              <%= f.label :rate, "評価" %>
-              <%= f.hidden_field :rate, id: :review_star %>
-            </div>
-            <div class="form-group">
-              <%= f.text_field :title, class: "form-control review-form", placeholder: "タイトルを入力してください" %>
-            </div>
-            <div class="form-group">
-              <%= f.text_area :comment, class: "form-control review-form", placeholder: "本文を入力してください" %>
-            </div>
-            <script>
-                $('#star').raty({
-                  size: 36,
-                  starOff:  "star-off.png",
-                  starOn : "star-on.png",
-                  starHalf: "star-half.png",
-                  scoreName: "review[rate]",
-                  half: true,
-                });
-            </script>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.hidden_field :shop_id, value: @shop_id %>
-            <%= f.hidden_field :shop_name, value: @shop["name"] %>
-            <%= f.submit "投稿する", class: "btn md-btn btn-primary" %>
-          </div>
-        <% end %>
       </div>
-    </div>
-  </div>
+    <% end %>
   <% elsif %>
     <div class="no-params-error">
       <p>店舗情報が取得できませんでした</p>

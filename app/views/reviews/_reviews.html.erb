@@ -2,14 +2,12 @@
   <div class="shop-review-title">
     <%= image_tag "/review-image.png" %>
     <h5>みんなの口コミ</h5>
-    <% if reviews.exists? %>
-      <% if user_signed_in? %>
-        <button type="button" class="btn md-btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
-          口コミを投稿する
-        </button>
-      <% else %>
-        <%= link_to "口コミを投稿する", new_user_session_path, class: "btn-primary btn" %>
-      <% end %>
+    <% if reviews.exists? && user_signed_in? %>
+      <button type="button" class="btn md-btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
+        口コミを投稿する
+      </button>
+    <% elsif reviews.exists? %>
+      <%= link_to "口コミを投稿する", new_user_session_path, class: "btn-primary md-btn btn" %>
     <% end %>
   </div>
   <div class="review-wrapper">
