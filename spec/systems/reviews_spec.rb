@@ -253,6 +253,10 @@ RSpec.describe "Reviews", type: :system do
       visit reviews_path
     end
 
+    it 'サイドバーのマイレビュー一覧に、activeクラスが適応されていること' do
+      expect(find('ul').all("a")[2].find('li')[:class]).to include 'active'
+    end
+
     it 'レビュー一覧が表示されていること' do
       expect(page).to have_content review1.rate
       expect(page).to have_content review1.title

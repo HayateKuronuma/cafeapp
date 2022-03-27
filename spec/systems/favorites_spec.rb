@@ -18,17 +18,17 @@ RSpec.describe "Reviews", type: :system do
     context 'お気に入り登録されていない場合' do
       before { visit shop_path(shop_id: 'J001245046') }
 
-      it 'お気に入りに保存ボタンが表示されていること' do
+      it '「お気に入りに保存」ボタンが表示されていること' do
         expect(page).to have_content 'お気に入りに保存'
       end
 
-      it 'お気に入りに保存ボタンを押したらflashが表示されること' do
+      it '「お気に入りに保存」ボタンを押したらflashが表示されること' do
         click_link 'お気に入りに保存'
         expect(page).to have_selector 'p.alert.alert-notice'
         expect(page).to have_content 'お気に入りに登録しました'
       end
 
-      it 'お気に入りに保存ボタンを押したら、ボタンがお気に入り解除に変わっていること' do
+      it '「お気に入りに保存」ボタンを押したら、ボタンが「お気に入り解除」に変わっていること' do
         click_link 'お気に入りに保存'
         expect(page).to have_content 'お気に入り解除'
       end
@@ -39,17 +39,17 @@ RSpec.describe "Reviews", type: :system do
 
       before { visit shop_path(shop_id: 'J001245046') }
 
-      it 'お気に入り解除ボタンが表示されていること' do
+      it '「お気に入り解除」ボタンが表示されていること' do
         expect(page).to have_content 'お気に入り解除'
       end
 
-      it 'お気に入り解除ボタンを押したらflashが表示されること' do
+      it '「お気に入り解除」ボタンを押したらflashが表示されること' do
         click_link 'お気に入り解除'
         expect(page).to have_selector 'p.alert.alert-error'
         expect(page).to have_content 'お気に入りを削除しました'
       end
 
-      it 'お気に入り解除ボタンを押したら、ボタンがお気に入りに保存に変わっていること' do
+      it '「お気に入り解除」ボタンを押したら、ボタンが「お気に入りに保存」に変わっていること' do
         click_link 'お気に入り解除'
         expect(page).to have_content 'お気に入りに保存'
       end
@@ -72,6 +72,10 @@ RSpec.describe "Reviews", type: :system do
 
       log_in user
       visit favorites_path
+    end
+
+    it 'サイドバーのお気に入り一覧に、activeクラスが適応されていること' do
+      expect(find('ul').all("a")[1].find('li')[:class]).to include 'active'
     end
 
     it 'お気に入り一覧が表示されていること' do

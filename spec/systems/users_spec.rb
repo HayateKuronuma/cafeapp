@@ -90,6 +90,10 @@ RSpec.describe "Users", type: :system do
       visit edit_user_registration_path
     end
 
+    it 'サイドバーのアカウント情報に、activeクラスが適応されていること' do
+      expect(find('ul').all("a")[0].find('li')[:class]).to include 'active'
+    end
+
     context '無効な値の場合' do
       it 'エラーメッセージ用の領域が表示されていること' do
         fill_in 'user_name', with: ''
