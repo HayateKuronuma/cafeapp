@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :favorite do
-    user_id { 1 }
-    shop_id { "MyString" }
+    shop_id { "J001245046" }
+
+    association :user
   end
 end
