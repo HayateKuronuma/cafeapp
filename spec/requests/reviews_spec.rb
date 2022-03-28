@@ -39,7 +39,7 @@ RSpec.describe "Reviews", type: :request do
                                       user_id: user.id } } }
 
     context '未ログインの場合' do
-      it "投稿が失敗すること" do
+      it "review投稿が失敗すること" do
         expect{
           post reviews_path, params: review_params, xhr: true
         }.to_not change(Review, :count)
@@ -49,7 +49,7 @@ RSpec.describe "Reviews", type: :request do
     context 'ログイン済みの場合' do
       before { sign_in user }
 
-      it '投稿できること' do
+      it 'review投稿できること' do
         expect{
           post reviews_path, params: review_params, xhr: true
         }.to change(Review, :count).by(1)
@@ -86,13 +86,13 @@ RSpec.describe "Reviews", type: :request do
                                                          comment: '' } }, xhr: true
         end
 
-        it 'Ajaxで更新できないこと' do
+        it 'reviewがAjaxで更新できないこと' do
           review.reload
           expect(review.title).to_not eq ''
           expect(review.comment).to_not eq ''
         end
 
-        it '更新失敗後、レスポンスにエラー文が含まれていること' do
+        it 'review更新失敗後、レスポンスにエラー文が含まれていること' do
           expect(response.body).to include 'タイトルを入力してください'
         end
       end
@@ -107,7 +107,7 @@ RSpec.describe "Reviews", type: :request do
                                                          rate: @rate } }, xhr: true
         end
 
-        it 'Ajaxで更新でるきこと' do
+        it 'reviewがAjaxで更新でるきこと' do
           review.reload
           expect(review.title).to eq @title
           expect(review.comment).to eq @comment
@@ -131,7 +131,7 @@ RSpec.describe "Reviews", type: :request do
         expect(response).to redirect_to new_user_session_path
       end
 
-      it '削除できないこと' do
+      it 'reviewが削除できないこと' do
         expect {
           delete review_path(review)
         }.to_not change(Review, :count)
@@ -139,7 +139,7 @@ RSpec.describe "Reviews", type: :request do
     end
 
     context 'ログイン済みの場合' do
-      it 'Ajaxで削除できること' do
+      it 'reviewがAjaxで削除できること' do
         sign_in user
         expect {
           delete review_path(review), xhr: true

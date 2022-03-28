@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   let!(:user1) { create(:user) }
   let(:user2) { create(:user) }
 
-  it '全て正常な値の時登録できること' do
+  it '全て正常な値の時user登録できること' do
     expect(user2).to be_valid
   end
 

@@ -5,7 +5,7 @@ RSpec.describe Favorite, type: :model do
   describe "check_number_of_favoritesのテスト" do
     let(:favorite) { create(:favorite) }
 
-    it '全て有効な値の場合登録できること' do
+    it '全て有効な値の場合favorite登録できること' do
       expect(favorite).to be_valid
     end
 

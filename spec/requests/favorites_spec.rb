@@ -27,7 +27,7 @@ RSpec.describe "Favorites", type: :request do
     let(:favorite_params) { { shop_id: "J001245046", user_id: user.id } }
 
     context '未ログインの場合' do
-      it "投稿が失敗すること" do
+      it "お気に入り登録が失敗すること" do
         expect{
           post favorites_path, params: favorite_params, xhr: true
         }.to_not change(Favorite, :count)
@@ -60,7 +60,7 @@ RSpec.describe "Favorites", type: :request do
         expect(response).to redirect_to new_user_session_path
       end
 
-      it '削除できないこと' do
+      it 'favoriteが削除できないこと' do
         expect {
           delete favorite_path(favorite)
         }.to_not change(Favorite, :count)
@@ -68,7 +68,7 @@ RSpec.describe "Favorites", type: :request do
     end
 
     context 'ログイン済みの場合' do
-      it 'Ajaxで削除できること' do
+      it 'favoriteがAjaxで削除できること' do
         sign_in user
         expect {
           delete favorite_path(favorite), xhr: true
