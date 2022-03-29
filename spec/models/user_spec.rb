@@ -111,4 +111,26 @@ RSpec.describe User, type: :model do
       expect(user1.favorite_id(favorite.shop_id)).to eq favorite.id
     end
   end
+
+  describe 'self.guestメソッドのテスト' do
+    context 'ゲストユーザー未作成の場合' do
+      it 'メソッドを使用したらゲストユーザー登録ができること' do
+        user = User.guest
+        expect(user).to be_valid
+      end
+
+      it 'ゲストユーザの名前とアドレスが設定通りになっていること' do
+        user = User.guest
+        expect(user.name).to eq 'ゲストユーザー'
+        expect(user.email).to eq 'guest@example.com'
+      end
+    end
+
+    context '既にゲストユーザー作成済みの場合' do
+      let!(:guest_user) { create(:user, name: 'ゲストユーザー', email: 'guest@example.com') }
+      it 'ゲストユーザ情報を取得すること' do
+        expect(User.guest).to eq guest_user
+      end
+    end
+  end
 end
