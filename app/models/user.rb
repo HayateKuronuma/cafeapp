@@ -14,6 +14,13 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲストユーザー"
+    end
+  end
+
   def favorited_by?(shop_id)
     favorites.exists?(shop_id: shop_id)
   end
