@@ -92,6 +92,39 @@ RSpec.describe "Users", type: :request do
     end
   end
 
+  describe "POST /users/guest_sign_in sessions#guest_sign_in" do
+    context "ゲストユーザが作成済みの場合" do
+      let!(:guest_user) { create(:user, name: 'ゲストユーザー', email: 'guest@example.com') }
+
+      before { post users_guest_sign_in_path }
+
+      it "ログインされること" do
+        expect(signed_in?).to be_truthy
+      end
+
+      it "rootへリダイレクトされること" do
+        expect(response).to redirect_to root_path
+      end
+    end
+
+    context "ゲストユーザ未作成の場合" do
+
+      it "ゲストユーザ作成されること" do
+        expect{ post users_guest_sign_in_path }.to change(User, :count).by (1)
+      end
+
+      it "rootへリダイレクトされること" do
+        post users_guest_sign_in_path
+        expect(response).to redirect_to root_path
+      end
+
+      it 'ログイン状態であること' do
+        post users_guest_sign_in_path
+        expect(signed_in?).to be_truthy
+      end
+    end
+  end
+
   describe 'DELETE /users/sign_out ' do
     let(:user) { create(:user) }
 
@@ -174,6 +207,30 @@ RSpec.describe "Users", type: :request do
         expect(response).to redirect_to new_user_session_path
       end
     end
+
+    context 'ゲストユーザの場合' do
+      let!(:guest_user) { create(:user, name: 'ゲストユーザー', email: 'guest@example.com') }
+
+      before do
+        sign_in guest_user
+        @name = 'Foo Bar'
+        @email = 'foo@bar.com'
+        @new_password = 'newpassword123'
+        patch user_registration_path, params: { user: { name: @name,
+                                                        email: @email,
+                                                        password: @new_password,
+                                                        password_confirmation: @new_password,
+                                                        current_password: user.password } }
+      end
+
+      it 'user更新できないこと' do
+        guest_user.reload
+        expect(user.name).to_not eq @name
+        expect(user.email).to_not eq @email
+        expect(user.password).to_not eq @new_password
+        expect(user.password_confirmation).to_not eq @new_password
+      end
+    end
   end
 
   describe 'DELETE /users/{id}' do
@@ -198,6 +255,20 @@ RSpec.describe "Users", type: :request do
         expect {
           delete user_registration_path
         }.to change(User, :count).by (-1)
+      end
+    end
+
+    context 'ゲストユーザの場合' do
+      let!(:guest_user) { create(:user, name: 'ゲストユーザー', email: 'guest@example.com') }
+
+      before do
+        sign_in guest_user
+      end
+
+      it 'user削除できないこと' do
+        expect {
+          delete user_registration_path
+        }.to_not change(User, :count)
       end
     end
   end
