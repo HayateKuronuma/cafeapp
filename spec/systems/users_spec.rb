@@ -124,7 +124,7 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_selector 'p.alert.alert-notice'
       end
 
-      it '編集ページが表示されること' do
+      it 'user編集ページが表示されること' do
         expect(current_path).to eq edit_user_registration_path
       end
 

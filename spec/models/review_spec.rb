@@ -4,7 +4,7 @@ RSpec.describe Review, type: :model do
   let(:review) { create(:review, rate: 4.5) }
   let(:review2) { create(:review, rate: 2.5) }
 
-  it '全て有効な値の場合登録できること' do
+  it '全て有効な値の場合review登録できること' do
     expect(review).to be_valid
   end
 

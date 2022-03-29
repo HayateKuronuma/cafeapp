@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Reviews", type: :system do
+RSpec.describe "Favorites", type: :system do
   describe 'shopページからのお気に入り登録と解除', js: true do
     let(:user) { create(:user) }
 

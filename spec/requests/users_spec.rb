@@ -129,7 +129,7 @@ RSpec.describe "Users", type: :request do
                                                            current_password: 'password' } }
         end
 
-        it '更新できないこと' do
+        it 'user更新できないこと' do
           user.reload
           expect(user.name).to_not eq ''
           expect(user.email).to_not eq ''
@@ -137,7 +137,7 @@ RSpec.describe "Users", type: :request do
           expect(user.password_confirmation).to_not eq 'bar'
         end
 
-        it '更新失敗後、editページが表示されていること' do
+        it 'user更新失敗後、editページが表示されていること' do
           expect(response.body).to include 'アカウント情報編集'
         end
       end
@@ -154,7 +154,7 @@ RSpec.describe "Users", type: :request do
                                                           current_password: user.password } }
         end
 
-        it '更新できること' do
+        it 'user情報更新できること' do
           user.reload
           expect(user.name).to eq @name
           expect(user.email).to eq @email
@@ -185,7 +185,7 @@ RSpec.describe "Users", type: :request do
         expect(response).to redirect_to new_user_session_path
       end
 
-      it '削除できないこと' do
+      it 'user削除できないこと' do
         expect {
           delete user_registration_path
         }.to_not change(User, :count)
@@ -193,7 +193,7 @@ RSpec.describe "Users", type: :request do
     end
 
     context 'ログイン済みの場合' do
-      it '削除できること' do
+      it 'user削除できること' do
         sign_in user
         expect {
           delete user_registration_path
