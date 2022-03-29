@@ -14,6 +14,8 @@ AllCops:
     - 'db/**/*'
     - 'spec/**/*'
     - 'config/environments/*'
+    - 'app/controllers/users/*'
+    - 'app/controllers/application_controller.rb'
   NewCops: enable
 
 Rails:
