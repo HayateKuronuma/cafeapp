@@ -13,6 +13,11 @@ module SigninSupport
       fill_in "user_password", with: user.password
       click_button "ログイン"
     end
+
+    def guest_log_in
+      visit new_user_session_path
+      click_link "ゲストログイン"
+    end
   end
 end
 
