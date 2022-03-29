@@ -89,4 +89,26 @@ RSpec.describe User, type: :model do
     user2.avatar =  Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/testimage.jpeg'))
     expect(user2).to be_valid
   end
+
+  describe 'favorited_by?メソッドのテスト' do
+    it 'お気に入り登録されていない場合、falseを返すこと' do
+      expect(user1.favorited_by?("J001245046")).to eq false
+    end
+
+    context 'お気に入り登録されている場合' do
+      let(:favorite) { create(:favorite, user_id: user1.id) }
+
+      it 'trueを返すこと' do
+        expect(user1.favorited_by?(favorite.shop_id)).to eq true
+      end
+    end
+  end
+
+  describe 'favorite_idメソッドのテスト' do
+    let(:favorite) { create(:favorite, user_id: user1.id) }
+
+    it '引数に渡したshop_idを持つfavoriteのidを取得すること' do
+      expect(user1.favorite_id(favorite.shop_id)).to eq favorite.id
+    end
+  end
 end
