@@ -2,7 +2,9 @@
 <header>
   <div class="header-container">
     <div class="header-left-nav">
-      <%= link_to "CAFE APP", root_path, class: "header-logo" %>
+      <%= link_to root_path, class: "header-logo" do %>
+        <%= image_tag '/wan-search-logo.png', class: 'header-logo-img' %>
+      <% end %>
     </div>
     <% if user_signed_in? %>
       <div class="header-right-nav">

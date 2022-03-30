@@ -93,11 +93,6 @@ header {
   padding: 0 30px;
 }
 
-.header-logo {
-  color: #faf4e7;
-  font-size: 2rem;
-}
-
 .header-left-nav {
   display: flex;
   align-items: center;
@@ -192,4 +187,15 @@ header {
 
 .alert-error {
   background-color: #e8a792;
+}
+
+.header-logo-img {
+  width: 220px;
+}
+
+@media screen and (min-width:769px) {
+  .header-logo-img {
+    width: 300px;
+    padding: 10px;
+  }
 }
