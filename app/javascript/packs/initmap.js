@@ -33,7 +33,10 @@ $(function(){
       myMarker = new google.maps.Marker({
         position: LatLng,
         map: map,
-        icon: "/currenticon.png"
+        icon: {
+          url: "/current_position_icon.png",
+          scaledSize: new google.maps.Size(50, 50),
+        }
       });
       //ajaxでコントローラーに現在地を渡す
       $.ajax({
