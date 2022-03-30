@@ -1,6 +1,5 @@
 version: "3"
 volumes:
-  mysql_data:
   public_data:
   tmp_data:
   gem_data:
