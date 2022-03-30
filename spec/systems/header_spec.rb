@@ -9,7 +9,7 @@ RSpec.describe "HeaderFooterLayouts", type: :system do
       end
 
       it 'ヘッダーロゴをクリックするとrootに遷移すること' do
-        click_link 'CAFE APP'
+        find('.header-logo').click
         expect(page.current_path).to eq root_path
       end
 
@@ -35,7 +35,7 @@ RSpec.describe "HeaderFooterLayouts", type: :system do
       end
 
       it 'ヘッダーロゴをクリックするとrootに遷移すること' do
-        click_link 'CAFE APP'
+        find('.header-logo').click
         expect(page.current_path).to eq root_path
       end
 
@@ -55,7 +55,7 @@ RSpec.describe "HeaderFooterLayouts", type: :system do
     it 'Copyrightを表示すること' do
       visit root_path
       within(".footer") do
-        expect(page).to have_content 'Copyright © 2022 Cafeapp'
+        expect(page).to have_content 'Copyright © 2022 WAN SEARCH'
       end
     end
   end
