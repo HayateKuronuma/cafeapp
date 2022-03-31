@@ -90,7 +90,7 @@ $(function(){
             err_msg = "タイムアウトしました";
             break;
         }
-      document.getElementById("show_result").innerHTML = err_msg;
+      document.getElementById("show_search_error").innerHTML = err_msg;
     }
     let option = {
       enableHighAccuracy: true
