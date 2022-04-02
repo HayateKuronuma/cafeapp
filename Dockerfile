@@ -1,4 +1,4 @@
-FROM ruby:3.1.0 as Base
+FROM ruby:3.1.0
 
 ENV RAILS_ENV=production
 
@@ -18,7 +18,6 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -                     
     vim                                                                                                                                 \
     imagemagick                                                                                                                         \
   && apt-get clean
-
 
 WORKDIR /cafeapp
 RUN mkdir -p tmp/sockets
