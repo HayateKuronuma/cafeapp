@@ -1,6 +1,4 @@
-FROM ruby:3.1.0
-
-ENV RAILS_ENV=production
+FROM ruby:3.1.0 as base
 
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -                                                                             \
   && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -                                                                  \
@@ -20,23 +18,42 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -                     
   && apt-get clean
 
 WORKDIR /cafeapp
-RUN mkdir -p tmp/sockets
-RUN mkdir -p tmp/pids
-ADD Gemfile /cafeapp/Gemfile
-ADD Gemfile.lock /cafeapp/Gemfile.lock
-COPY yarn.lock /cafeapp
-COPY package.json /cafeapp
-RUN bundle install
-RUN yarn install
-COPY . /cafeapp
+COPY Gemfile .
+COPY Gemfile.lock .
+COPY package.json .
+COPY yarn.lock .
 
-RUN NODE_ENV=production ./bin/webpack
+RUN bundle install --jobs=4
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
+# Develop
+FROM base as development
+RUN yarn install
+
+COPY . /cafeapp
+RUN mkdir -p tmp/sockets tmp/pids
+
+# build
+FROM base as build
+
+RUN mkdir -p tmp/sockets tmp/pids
+COPY . /cafeapp
+RUN yarn install
+
+# compole
+FROM build as compile
+
+ENV NODE_ENV=production
+RUN ./bin/webpack
+
+# production
+FROM compile as production
+
+ENV RAILS_ENV=production
 VOLUME /cafeapp/public
 VOLUME /cafeapp/tmp
 
-CMD bash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb"
+CMD bash -c "bundle exec puma -C config/puma.rb"
