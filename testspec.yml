@@ -12,4 +12,5 @@ phases:
     commands:
       - echo Build started on `data`
       - echo Building the Rspec test...
+      - docker-compose run --rm app rails webpacker:compile
       - docker-compose run --rm app bundle exec rspec
