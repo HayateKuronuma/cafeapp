@@ -43,7 +43,7 @@ RUN mkdir -p tmp/sockets tmp/pids
 COPY . /cafeapp
 RUN yarn install
 
-# compole
+# compoile
 FROM build as compile
 
 ENV NODE_ENV=production
