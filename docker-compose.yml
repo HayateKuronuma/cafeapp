@@ -24,6 +24,7 @@ services:
       - MYSQL_USERNAME=root
       - MYSQL_PASSWORD=root_password
       - MYSQL_HOST=mysql
+      - RAILS_MASTER_KEY
       - TZ='Asia/Tokyo'
       - WEBPACKER_DEV_SERVER_HOST=webpacker
       - SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub
