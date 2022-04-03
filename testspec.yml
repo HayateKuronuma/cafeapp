@@ -5,11 +5,15 @@ phases:
     commands:
       - echo Logging in to Test....
       - chown -R 1000:1000 .
-      - docker-compose run --rm app sleep 10
-      - docker-compose run --rm app rails db:create RAILS_ENV=test
-      - docker-compose run --rm app rails db:migrate RAILS_ENV=test
+      - docker-compose run app bundle install
+      - docker-compose up -d --build
+      - docker-compose exec -T app sleep 10
+      - docker-compose exec -T app rails db:create RAILS_ENV=test
+      - docker-compose exec -T app rails db:migrate RAILS_ENV=test
   build:
     commands:
       - echo Build started on `data`
       - echo Building the Rspec test...
-      - docker-compose run --rm app bundle exec rspec
+      - docker-compose exec -T app rails webpacker:install
+      - docker-compose exec -T app rails webpacker:compile
+      - docker-compose exec -T app bundle exec rspec
