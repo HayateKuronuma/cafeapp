@@ -52,5 +52,5 @@ production:
   <<: *default
   database: cafeapp_production
   username: root
-  password: <%= Rails.application.credentials.dig(:db, :password %>
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
   host: <%= Rails.application.credentials.dig(:db, :hostname) %>
