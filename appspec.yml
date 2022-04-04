@@ -7,5 +7,5 @@ Resources:
         TaskDefinition: <TASK_DEFINITION>
         LoadBalancerInfo:
           ContainerName: "nginx"
-          ContainerPort: 443
+          ContainerPort: 80
         PlatformVersion: "LATEST"
