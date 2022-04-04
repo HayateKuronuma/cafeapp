@@ -12,7 +12,7 @@ services:
   app:
     build:
       context: .
-      target: development
+      dockerfile: Dockerfile.dev
     ports:
       - '3000:3000'
     depends_on:
@@ -34,7 +34,7 @@ services:
   webpacker:
     build:
       context: .
-      target: development
+      dockerfile: Dockerfile.dev
     environment:
       - NODE_ENV=development
       - RAILS_ENV=development
