@@ -3,6 +3,8 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - echo Logiging in to Docker
+      - echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
       - echo Logging in to Test....
       - chown -R 1000:1000 .
       - docker-compose run app bundle install
