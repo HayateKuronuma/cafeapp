@@ -1,0 +1,47 @@
+{
+  "family": "cafeapp-ecs",
+  "cpu": "256",
+  "memory": "512",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "executionRoleArn": "arn:aws:iam::513151474697:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::513151474697:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "rails",
+      "image": "513151474697.dkr.ecr.ap-northeast-1.amazonaws.com/cafeapp-rails:latest",
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "protocol": "tcp",
+          "containerPort": 3000
+        }
+      ],
+      "environment": [
+        {
+          "name": "RAILS_MASTER_KEY",
+          "value": "0244b2e1b27a83e2d8a60299b597b6bb"
+        }
+      ],
+      "essential": true
+    },
+    {
+      "name": "nginx",
+      "image": "513151474697.dkr.ecr.ap-northeast-1.amazonaws.com/cafeapp-nginx:latest",
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
+      "volumesFrom": [
+        {
+          "sourceContainer": "rails",
+          "readOnly": true
+        }
+      ],
+      "essential": true
+    }
+  ]
+}
