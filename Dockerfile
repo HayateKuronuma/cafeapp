@@ -39,7 +39,7 @@ FROM base as build
 
 RUN mkdir -p tmp/sockets
 RUN mkdir -p tmp/pids
-COPY --chown=app:app . /cafeapp
+COPY . /cafeapp
 
 # compoile
 FROM build as compile
@@ -89,3 +89,7 @@ RUN yarn install
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
+
+RUN mkdir -p tmp/sockets
+RUN mkdir -p tmp/pids
+COPY . /cafeapp
