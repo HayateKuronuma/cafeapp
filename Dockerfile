@@ -56,6 +56,8 @@ VOLUME /cafeapp/tmp
 CMD bash -c "bundle exec puma -C config/puma.rb"
 
 # Develop
+FROM ruby:3.1.0 as development
+
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -                                                                             \
   && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -                                                                  \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list                                      \
