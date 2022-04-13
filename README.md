@@ -1,4 +1,4 @@
-## WAN SEARCH (ワン サーチ)
+# WAN SEARCH (ワン サーチ)
 現在地周辺のペット可のお店を検索し、GOOGLE MAP上に表示するアプリケーションです。
 
 ## URL
