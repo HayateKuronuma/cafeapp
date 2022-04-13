@@ -5,9 +5,9 @@
 https://wan-search.com
 
 ## なぜ作ったのか
-愛犬と散歩に行って一休憩...と思いきや意外とペット可のお店を知りませんでした。
-グルメ検索サイトで調べようと思っても条件設定を開いて設定しなければならず、検索しても検索結果は基本リスト表示です。
-そこで、MAPで直感的に現在地周辺のペット化のお店が調べられたらと思いWAN SEARCHを作成しました。
+愛犬と散歩に行って一休憩...と思いきや意外とペット可のお店を知りませんでした。  
+グルメ検索サイトで調べようと思っても条件設定を開いて設定しなければならず、検索しても検索結果は基本リスト表示です。  
+そこで、MAPで直感的に現在地周辺のペット化のお店が調べられたらと思いWAN SEARCHを作成しました。  
 
 ## ゲストログイン
 新規登録画面またはログイン画面から「ゲストログイン」ボタンを押下してください。
@@ -35,22 +35,22 @@ https://wan-search.com
 - Google Maps API
 - ホットペッパーグルメサーチAPI
 
-## AWS構成図
-![AWS構成図](docs/images/aws-networking.png)
+## AWS構成図  
+![AWS構成図](docs/images/aws-networking.png)  
 
-## ER図
-![ER図](docs/images/cafeapp-er.png)
+## ER図  
+![ER図](docs/images/cafeapp-er.png)  
 
 ## 機能一覧
 - 現在地周辺のショップ検索機能
   - ホットペッパーグルメAPIのデータベースを利用
-  - GOOGLE MAPに現在地とショップにピンを立てる
-  ![現在地周辺のショップ検索機能](docs/images/howto_search.gif)
+  - GOOGLE MAPに現在地とショップにピンを立てる  
+ ![現在地周辺のショップ検索機能](docs/images/howto_search.gif)  
 - ユーザー登録、ログイン機能(devise)
-- お気に入り機能(Ajax)
-![お気に入り機能](docs/images/howto_favorite.gif)
-- レビュー機能(Ajax)
-![レビュー機能](docs/images/howto_review.gif)
+- お気に入り機能(Ajax)　　  
+![お気に入り機能](docs/images/howto_favorite.gif)  
+- レビュー機能(Ajax)  
+![レビュー機能](docs/images/howto_review.gif)  
 - マイページ
   - アイコン画像、名前、メールアドレス、パスワード変更可能
   - 自分のお気に入り一覧(Ajax通信で削除可能)
