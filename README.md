@@ -36,21 +36,21 @@ https://wan-search.com
 - ホットペッパーグルメサーチAPI
 
 ## AWS構成図
-![](docs/images/aws-networking.png)
+![AWS構成図](docs/images/aws-networking.png)
 
 ## ER図
-![](docs/images/cafeapp-er.png)
+![ER図](docs/images/cafeapp-er.png)
 
 ## 機能一覧
 - 現在地周辺のショップ検索機能
   - ホットペッパーグルメAPIのデータベースを利用
   - GOOGLE MAPに現在地とショップにピンを立てる
-  ![](docs/images/howto_search.gif)
+  ![現在地周辺のショップ検索機能](docs/images/howto_search.gif)
 - ユーザー登録、ログイン機能(devise)
 - お気に入り機能(Ajax)
-![](docs/images/howto_favorite.gif)
+![お気に入り機能](docs/images/howto_favorite.gif)
 - レビュー機能(Ajax)
-![](docs/images/howto_review.gif)
+![レビュー機能](docs/images/howto_review.gif)
 - マイページ
   - アイコン画像、名前、メールアドレス、パスワード変更可能
   - 自分のお気に入り一覧(Ajax通信で削除可能)
