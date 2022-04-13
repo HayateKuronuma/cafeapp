@@ -38,6 +38,10 @@ https://wan-search.com
 ## AWS構成図  
 ![AWS構成図](docs/images/aws-networking.png)  
 
+### CI/CD
+- Githubにてプルリクエストが出された時、またはプルリクエストが更新されたときにCodebuildによってRSpecが自動で実行されます。
+- 開発ブランチがmasterブランチにマージされると、DockerイメージのPushとBlue/Greenデプロイが自動で実行されます。
+
 ## ER図  
 ![ER図](docs/images/cafeapp-er.png)  
 
@@ -45,7 +49,7 @@ https://wan-search.com
 - 現在地周辺のショップ検索機能
   - ホットペッパーグルメAPIのデータベースを利用
   - GOOGLE MAPに現在地とショップにピンを立てる  
- ![現在地周辺のショップ検索機能](docs/images/howto_search.gif)  
+![現在地周辺のショップ検索機能](docs/images/howto_search.gif)  
 - ユーザー登録、ログイン機能(devise)
 - お気に入り機能(Ajax)　　  
 ![お気に入り機能](docs/images/howto_favorite.gif)  
@@ -55,8 +59,12 @@ https://wan-search.com
   - アイコン画像、名前、メールアドレス、パスワード変更可能
   - 自分のお気に入り一覧(Ajax通信で削除可能)
   - マイレビュー一覧(Ajax通信で編集・削除可能)
+
 ## テスト
 ### RSpec
 - 単体テスト(Model Spec)
 - 結合テスト(Request Spec)
 - システムテスト(Feature Spec)
+
+## 実装予定の機能
+- キーワード検索（ex.駅名で検索）
