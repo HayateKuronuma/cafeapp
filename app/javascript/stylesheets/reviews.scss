@@ -14,12 +14,14 @@
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  padding-bottom: 3rem;
 }
 
 .user-review-inner {
   width: 70%;
-  margin: 5rem auto 0 auto;
+  margin: 0 auto;
+  h1 {
+    margin-top: 3rem;
+  }
 }
 
 .no-review {
