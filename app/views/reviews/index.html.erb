@@ -1,9 +1,7 @@
 <% provide(:title,  "マイレビュー一覧") %>
 <div class="user-review-wrapper">
   <%= render "shared/sidebar" %>
-  <div class="container">
-    <div class="user-review-inner" id="user-review-inner">
-      <%= render "my_review_index", reviews: @my_reviews %>
-    </div>
+  <div class="user-review-inner" id="user-review-inner">
+    <%= render "my_review_index", reviews: @my_reviews %>
   </div>
 </div>

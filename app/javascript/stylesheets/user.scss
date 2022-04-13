@@ -49,11 +49,10 @@
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  padding-bottom: 3rem;
 }
 
 .user-favorite-inner {
-  width: 85%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -148,13 +147,15 @@
 }
 
 .side-bar-wrapper {
+  border-right: 1px solid #dedccc;
+  width: 205px;
   ul {
     margin-top: 2rem;
   }
 }
 
 .side-bar-link {
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 2rem;
   background-color: #faf4e6;
   color: #212529;
   font-size: 1.5rem;
