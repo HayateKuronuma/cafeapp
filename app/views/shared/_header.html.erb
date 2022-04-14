@@ -9,6 +9,8 @@
     <% if user_signed_in? %>
       <div class="header-right-nav">
         <div class="right-nav-wrapper">
+          <%= link_to "最新の口コミ", current_reviews_reviews_path, class: "header-btn md-btn" %>
+          <div class="line"></div>
           <%= link_to "お気に入り一覧", favorites_path, class: "header-btn md-btn" %>
           <div class="line"></div>
           <%= link_to "マイページ", edit_user_registration_path, class: "header-btn md-btn" %>
@@ -26,6 +28,8 @@
     <% else %>
       <div class="header-right-nav">
         <div class="right-nav-wrapper">
+          <%= link_to "最新の口コミ", current_reviews_reviews_path, class: "header-btn md-btn" %>
+          <div class="line"></div>
           <%= link_to "ログイン", new_user_session_path, class: "btn header-btn md-btn" %>
           <div class="line"></div>
           <%= link_to "登録する", new_user_registration_path, class: "btn header-btn md-btn" %>
