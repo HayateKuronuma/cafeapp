@@ -1,6 +1,6 @@
 # WAN SEARCH (ワン サーチ)
 ![](docs/images/search.png)  
-現在地周辺のペット可のお店を検索し、GOOGLE MAP上に表示するアプリケーションです。
+現在地周辺のペット可のお店をホットペッパーAPIから検索し、GOOGLE MAP上に表示するアプリケーションです。
 
 ## URL
 https://wan-search.com
