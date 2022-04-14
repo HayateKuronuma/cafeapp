@@ -1,4 +1,5 @@
 # WAN SEARCH (ワン サーチ)
+![](docs/images/search.png)  
 現在地周辺のペット可のお店を検索し、GOOGLE MAP上に表示するアプリケーションです。
 
 ## URL
@@ -47,6 +48,7 @@ https://wan-search.com
 
 ## 機能一覧
 - 現在地周辺のショップ検索機能
+  - 現在地取得(Geolocation API)
   - ホットペッパーグルメAPIのデータベースを利用
   - GOOGLE MAPに現在地とショップにピンを立てる  
 ![現在地周辺のショップ検索機能](docs/images/howto_search.gif)  
@@ -59,12 +61,15 @@ https://wan-search.com
   - アイコン画像、名前、メールアドレス、パスワード変更可能
   - 自分のお気に入り一覧(Ajax通信で削除可能)
   - マイレビュー一覧(Ajax通信で編集・削除可能)
+- 最新のレビュー一覧(10件まで表示)
 
 ## テスト
 ### RSpec
 - 単体テスト(Model Spec)
 - 結合テスト(Request Spec)
-- システムテスト(Feature Spec)
+- システムテスト(System Spec)
 
 ## 実装予定の機能
 - キーワード検索（ex.駅名で検索）
+- フォロー機能
+- レビューの画像投稿機能
