@@ -3,14 +3,14 @@ require 'webmock/rspec'
 
 RSpec.describe "Reviews", type: :request do
   before do
-    WebMock.stub_request(:get, "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/").
+    WebMock.stub_request(:get, "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?format=json&id=J001245046&key=#{Rails.application.credentials.api[:hotpepper_api]}").
     to_return(
       body: File.read("./spec/fixtures/shop_response.json"),
       status: 200,
     )
   end
 
-  describe "GET /reviews reviews#index" do
+  describe 'GET /reviews reviews#index' do
     let(:user) { create(:user) }
 
     context '未ログインの場合' do
@@ -21,11 +21,18 @@ RSpec.describe "Reviews", type: :request do
     end
 
     context 'ログイン済みの場合' do
-      it "リクエストが成功すること" do
+      it 'リクエストが成功すること' do
         sign_in user
         get reviews_path
         expect(response).to have_http_status(200)
       end
+    end
+  end
+
+  describe 'GET /reviews/current_reviews reviews#current_index' do
+    it 'リクエストが成功すること' do
+      get current_reviews_reviews_path
+      expect(response).to have_http_status(200)
     end
   end
 

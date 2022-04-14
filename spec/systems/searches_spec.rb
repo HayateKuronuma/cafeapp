@@ -10,11 +10,11 @@ RSpec.describe "Searches", type: :system do
     end
 
     it '検索ボタンが表示されていること' do
-      expect(page).to have_content '現在地周辺のワンちゃんと行ける飲食店を検索'
+      expect(page).to have_content '愛犬と行ける飲食店を検索'
     end
 
     context '検索ボタンを押したら' do
-      before { click_button '現在地周辺のワンちゃんと行ける飲食店を検索' }
+      before { click_button '愛犬と行ける飲食店を検索' }
 
       it 'locatingの文字とアニメーションが表示されること' do
         expect(page).to have_content 'Locating...'

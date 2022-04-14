@@ -11,6 +11,28 @@ RSpec.describe "Reviews", type: :system do
     )
   end
 
+  describe '最新口コミ reviews#current_index' do
+    context '最新口コミがある場合', js: true do
+      let(:user) { create(:user) }
+      let!(:review) { create(:review, user_id: user.id) }
+
+      it '口コミが表示されていること' do
+        visit current_reviews_reviews_path
+        expect(page).to have_content user.name
+        expect(page).to have_content review.shop_name
+        expect(page).to have_content review.title
+        expect(page).to have_content review.comment
+      end
+    end
+
+    context '最新口コミがない場合' do
+      it '現在クチコミはありませんと表示されること' do
+        visit current_reviews_reviews_path
+        expect(page).to have_content '現在クチコミはありません'
+      end
+    end
+  end
+
   describe '新規投稿 review#create' do
     let(:user) { create(:user) }
 

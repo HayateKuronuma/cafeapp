@@ -1,0 +1,59 @@
+<% provide(:title, "最新口コミ") %>
+<div class="container">
+  <div class="cuurent-review-frame">
+    <div class="shop-review-title">
+      <%= image_tag "/review-image.png" %>
+      <h5>みんなの最新口コミ</h5>
+    </div>
+    <div class="review-wrapper">
+      <% if @reviews.present? %>
+        <div class="review-inner" id="reviews">
+          <% @reviews.each do |review| %>
+            <div class="review-frame" id="rv-wrapper-<%= review.id %>">
+              <div class="current-review-shop-name">
+                <%= link_to shop_path(shop_id: review.shop_id) do%>
+                  <%= review.shop_name %>
+                <% end %>
+              </div>
+              <div class="review-user-header">
+                <div class="review-user-icon">
+                  <% if review.user.avatar.attached? %>
+                    <%= image_tag review.user.avatar.variant(gravity: :center, resize:"300x300^", crop:"300x300+0+0") %>
+                  <% else %>
+                    <%= image_tag "/default_icon.jpg" %>
+                  <% end %>
+                </div>
+                <div class="review-user-name">
+                  <%= review.user.name %>さんの口コミ
+                </div>
+                <div class="raview-rate-wrapper">
+                  <div id="star-rate<%= review.id %>"></div>
+                  <span><%= review.rate %></span>
+                </div>
+              </div>
+              <div class="review-main-content">
+                <h5 class="rv-title" id="rv-title-<%= review.id %>"><%= review.title %></h5>
+                <p class="rv-comment" id="rv-comment-<%= review.id %>"><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
+              </div>
+            </div>
+            <script>
+              $("#star-rate<%= review.id %>").raty({
+                size: 36,
+                starOff: "/star-off.png",
+                starOn: "/star-on.png",
+                starHalf: "/star-half.png",
+                half: true,
+                readOnly: true,
+                score: "<%= review.rate %>",
+              });
+            </script>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="review-inner" id="reviews">
+          <p>現在クチコミはありません</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
