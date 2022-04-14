@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe "Searches", type: :system do
   describe 'topページからの検索機能', js: true do
     before { visit root_path }

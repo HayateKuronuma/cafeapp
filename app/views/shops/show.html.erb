@@ -1,6 +1,8 @@
 <div class="main-wrapper">
   <% if @shop.present? %>
     <% provide(:title, @shop["name"]) %>
+    <input type="hidden" id="lat" value="<%= @shop["lat"] %>">
+    <input type="hidden" id="lng" value="<%= @shop["lng"] %>">
     <div class="container">
       <div id="favorite-error"></div>
       <div class="shop-header-contents">
@@ -55,6 +57,15 @@
       <div id="shop-review-content">
         <%= render "reviews/reviews", reviews: @reviews %>
       </div>
+      <div class="address-wrapper">
+        <h4 class="address-title">住所</h4>
+        <div class="shop-address-container">
+          <p class="shop-address"><%= @shop["address"] %></p>
+          <div id="shop-map"></div>
+        </div>
+      </h3>
+      <%= javascript_pack_tag 'shopmap' %>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api[:google_map_api] %>&callback=initMap" async defer></script>
     </div>
     <% if user_signed_in? %>
       <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
