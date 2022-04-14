@@ -12,13 +12,5 @@
     <div id="show_result"></div>
   </div>
 </div>
-<%= javascript_pack_tag 'initmap', 'data-turbolinks-track': 'reload' %>
-<script>
-  if(window.google){
-    globalinitMap();
-  } else{
-    $.ajax('https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api[:google_map_api] %>&callback=globalinitMap', {
-      dataType: 'script'
-    });
-  }
-</script>
+<%= javascript_pack_tag 'initmap' %>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api[:google_map_api] %>&callback=globalinitMap" async defer></script>
