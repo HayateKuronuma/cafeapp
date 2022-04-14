@@ -1,9 +1,14 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:current_index]
   before_action :where_access_from, only: [:update, :destroy]
+  CURRENT_REVIEW_MAX_NUMBER = 10
 
   def index
     @my_reviews = Review.where(user_id: current_user.id)
+  end
+
+  def current_index
+    @reviews = Review.includes(:user).order(created_at: "DESC").limit(CURRENT_REVIEW_MAX_NUMBER)
   end
 
   def create

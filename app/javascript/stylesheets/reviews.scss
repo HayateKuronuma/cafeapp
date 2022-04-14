@@ -1,4 +1,14 @@
-.review-shop-name {
+.cuurent-review-frame {
+  margin-top: 2rem;
+}
+
+.current-review-shop-name {
+  border-bottom: 2px solid #eae8d8;
+  font-size: 1.7rem;
+  text-align: left;
+}
+
+.review-shop-name, .current-review-shop-name {
   a {
     &:hover {
       color: orange;
