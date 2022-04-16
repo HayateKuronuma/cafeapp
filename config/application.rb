@@ -21,5 +21,6 @@ module Cafeapp
     I18n.config.available_locales = :ja
     I18n.config.default_locale = :ja
     config.time_zone = 'Tokyo'
+    config.active_storage.replace_on_assign_to_many = false
   end
 end
