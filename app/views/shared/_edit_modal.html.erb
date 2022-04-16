@@ -1,0 +1,51 @@
+<div class="modal fade" id="reviewEditModal<%= review.id %>" tabindex="-1" aria-labelledby="reviewEditModalLabel<%= review.id %>" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-container">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewEditModalLabel<%= review.id %>">口コミ編集</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= form_with(model: review, local: false) do |f| %>
+        <div class="modal-body">
+          <div id="edit-error">
+            <%= render "devise/shared/error_messages", resource: f.object %>
+          </div>
+          <div class="form-group" id="re-star-<%= review.id %>">
+            <%= f.label :rate, "評価" %>
+            <%= f.hidden_field :rate, id: :review_star %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :title, class: "form-control review-form", placeholder: "タイトルを入力してください" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :comment, class: "form-control review-form", placeholder: "本文を入力してください" %>
+          </div>
+          <div class="form-group review-images-form">
+            <%= f.label :images, '写真' %>
+            <%= f.file_field :images, multiple: true %>
+          </div>
+          <% if review.images.attached? %>
+            <div class="review-images-frame">
+              <p class="attached-images-title">現在登録されている写真（削除するものはチェックしてください）</p>
+              <div class="review-images">
+                <% review.images.each do |image| %>
+                  <div class="review-image-wrapper">
+                    <%= image_tag image.variant(gravity: :center, resize:"130x130^", crop:"130x130+0+0") %>
+                    <div class="review-image-checkbox">
+                      <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
+                      <p>削除する</p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+          <%= f.submit "更新する", class: "btn md-btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
