@@ -91,10 +91,8 @@ RSpec.describe "Reviews", type: :system do
   end
 
   describe '編集 review#edit, update' do
-    let!(:user) { create(:user) }
-    sleep 0.1
+    let(:user) { create(:user) }
     let!(:review) { create(:review, user_id: user.id) }
-    sleep 0.1
 
     before { log_in user }
 
@@ -149,14 +147,12 @@ RSpec.describe "Reviews", type: :system do
           find('.edit-delete-btn').find('span').click
           attach_file "review[images][]", ["#{Rails.root}/spec/fixtures/images/testimage.jpeg", "#{Rails.root}/spec/fixtures/images/testimage2.jpeg"]
           click_button '更新する'
-          sleep 0.1
           find('.edit-delete-btn').find('span').click
           check "review_image_ids_#{review.images[1].id}"
           click_button '更新する'
         end
 
         it '削除できること' do
-          sleep 0.1
           expect(page).to_not have_selector("img[src$='testimage2.jpeg']")
         end
       end
@@ -185,7 +181,6 @@ RSpec.describe "Reviews", type: :system do
           fill_in 'review[title]', with: @edit_title
           fill_in 'review[comment]', with: @edit_comment
           attach_file "review[images][]", ["#{Rails.root}/spec/fixtures/images/testimage.jpeg", "#{Rails.root}/spec/fixtures/images/testimage2.jpeg"]
-          sleep 0.1
           click_button '更新する'
         end
 
@@ -214,14 +209,12 @@ RSpec.describe "Reviews", type: :system do
           find('.edit-delete-btn').find('span').click
           attach_file "review[images][]", ["#{Rails.root}/spec/fixtures/images/testimage.jpeg", "#{Rails.root}/spec/fixtures/images/testimage2.jpeg"]
           click_button '更新する'
-          sleep 0.1
           find('.edit-delete-btn').find('span').click
           check "review_image_ids_#{review.images[1].id}"
           click_button '更新する'
         end
 
         it '削除できること' do
-          sleep 0.1
           expect(page).to_not have_selector("img[src$='testimage2.jpeg']")
         end
       end
