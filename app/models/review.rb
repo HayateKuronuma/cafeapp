@@ -4,6 +4,7 @@ class Review < ApplicationRecord
 
   belongs_to :user
   has_many_attached :images
+  validates :images, attached_file_number: { maximum: 4 }, attached_file_size: { maximum: 1.megabytes }, attached_file_type: { pattern: /^image\// }
   validates :title, presence: true
   validates :comment, presence: true
   validates :user_id, presence: true
