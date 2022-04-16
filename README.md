@@ -58,6 +58,8 @@ https://wan-search.com
 - お気に入り機能(Ajax)　　  
 ![お気に入り機能](docs/images/howto_favorite.gif)  
 - レビュー機能(Ajax)  
+  - 星評価機能
+  - 画像投稿機能  
 ![レビュー機能](docs/images/howto_review.gif)  
 - マイページ
   - アイコン画像、名前、メールアドレス、パスワード変更可能
@@ -76,4 +78,3 @@ https://wan-search.com
 - レスポンシブ対応
 - キーワード検索（ex.駅名で検索）
 - フォロー機能
-- レビューの画像投稿機能
