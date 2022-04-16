@@ -147,7 +147,7 @@ RSpec.describe "Reviews", type: :system do
           find('.edit-delete-btn').find('span').click
           attach_file "review[images][]", ["#{Rails.root}/spec/fixtures/images/testimage.jpeg", "#{Rails.root}/spec/fixtures/images/testimage2.jpeg"]
           click_button '更新する'
-          sleep 1.0
+          sleep 4.0
           find('.edit-delete-btn').find('span').click
           check "review_image_ids_#{review.images[1].id}"
           click_button '更新する'
@@ -211,7 +211,7 @@ RSpec.describe "Reviews", type: :system do
           find('.edit-delete-btn').find('span').click
           attach_file "review[images][]", ["#{Rails.root}/spec/fixtures/images/testimage.jpeg", "#{Rails.root}/spec/fixtures/images/testimage2.jpeg"]
           click_button '更新する'
-          sleep 2.0
+          sleep 4.0
           find('.edit-delete-btn').find('span').click
           check "review_image_ids_#{review.images[1].id}"
           click_button '更新する'
