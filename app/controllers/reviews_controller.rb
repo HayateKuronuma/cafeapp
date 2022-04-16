@@ -4,11 +4,11 @@ class ReviewsController < ApplicationController
   CURRENT_REVIEW_MAX_NUMBER = 10
 
   def index
-    @my_reviews = Review.where(user_id: current_user.id)
+    @my_reviews = Review.includes([images_attachments: :blob]).where(user_id: current_user.id)
   end
 
   def current_index
-    @reviews = Review.includes(:user).order(created_at: "DESC").limit(CURRENT_REVIEW_MAX_NUMBER)
+    @reviews = Review.includes([images_attachments: :blob], user: [:avatar_attachment]).order(created_at: "DESC").limit(CURRENT_REVIEW_MAX_NUMBER)
   end
 
   def create
@@ -31,6 +31,12 @@ class ReviewsController < ApplicationController
     @shop_id = @review.shop_id
     @reviews = Review.where(shop_id: @shop_id).order(created_at: "DESC")
     @my_reviews = Review.where(user_id: current_user.id)
+    if params[:review][:image_ids]
+      params[:review][:image_ids].each do |image_id|
+        image = @review.images.find(image_id)
+        image.purge
+      end
+    end
     if @review.update(review_params)
       flash.now[:notice] = "口コミを編集しました"
       respond_to do |format|
@@ -58,7 +64,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:comment, :title, :shop_id, :shop_name, :user_id, :rate)
+    params.require(:review).permit(:comment, :title, :shop_id, :shop_name, :user_id, :rate, images: [])
   end
 
   def where_access_from
