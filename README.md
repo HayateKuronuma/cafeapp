@@ -58,6 +58,7 @@ https://wan-search.com
 - お気に入り機能(Ajax)　　  
 ![お気に入り機能](docs/images/howto_favorite.gif)  
 - レビュー機能(Ajax)  
+  - 星評価機能
   - 画像投稿機能  
 ![レビュー機能](docs/images/howto_review.gif)  
 - マイページ
