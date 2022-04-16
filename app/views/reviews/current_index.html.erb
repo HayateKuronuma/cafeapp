@@ -34,6 +34,17 @@
               <div class="review-main-content">
                 <h5 class="rv-title" id="rv-title-<%= review.id %>"><%= review.title %></h5>
                 <p class="rv-comment" id="rv-comment-<%= review.id %>"><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
+                <% if review.images.attached? %>
+                  <div class="review-images-area">
+                    <% review.images.each do |image| %>
+                      <div class="image-opacity">
+                        <%= link_to url_for(image) do %>
+                          <%= image_tag image.variant(gravity: :center, resize:"150x150^", crop:"150x150+0+0") %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
               </div>
             </div>
             <script>

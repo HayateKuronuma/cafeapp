@@ -34,6 +34,17 @@
             <div class="review-main-content">
               <h5 class="rv-title" id="rv-title-<%= review.id %>"><%= review.title %></h5>
               <p class="rv-comment" id="rv-comment-<%= review.id %>"><%= safe_join(review.comment.split("\n"),tag(:br)) %></p>
+                <% if review.images.attached? %>
+                  <div class="review-images-area">
+                    <% review.images.each do |image| %>
+                      <div class="image-opacity">
+                        <%= link_to url_for(image) do %>
+                          <%= image_tag image.variant(gravity: :center, resize:"150x150^", crop:"150x150+0+0") %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
               <div class="edit-delete-btn">
                 <% if user_signed_in? && current_user.id == review.user_id %>
                   <span data-bs-toggle="modal" data-bs-target="#reviewEditModal<%= review.id %>">
@@ -68,6 +79,26 @@
                     <div class="form-group">
                       <%= f.text_area :comment, class: "form-control review-form", placeholder: "本文を入力してください" %>
                     </div>
+                    <div class="form-group review-images-form">
+                      <%= f.label :images, '写真' %>
+                      <%= f.file_field :images, multiple: true %>
+                    </div>
+                    <% if review.images.attached? %>
+                      <div class="review-images-frame">
+                        <p class="attached-images-title">現在登録されている写真（削除するものはチェックしてください）</p>
+                        <div class="review-images">
+                          <% review.images.each do |image| %>
+                            <div class="review-image-wrapper">
+                              <%= image_tag image.variant(gravity: :center, resize:"130x130^", crop:"130x130+0+0") %>
+                              <div class="review-image-checkbox">
+                                <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
+                                <p>削除する</p>
+                              </div>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    <% end %>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn md-btn btn-secondary" data-bs-dismiss="modal">閉じる</button>

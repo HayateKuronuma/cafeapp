@@ -1,3 +1,8 @@
+.attached-images-title {
+  border-left: 0.5rem solid #866c34;
+  padding-left: 0.5rem;
+}
+
 .cuurent-review-frame {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -7,6 +12,18 @@
   border-bottom: 2px solid #eae8d8;
   font-size: 1.7rem;
   text-align: left;
+}
+
+.image-opacity {
+  background: #faf4e6;
+  margin-left: 1rem;
+  img {
+    opacity: 1;
+    transition: .3s;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
 
 .review-shop-name, .current-review-shop-name {
@@ -38,4 +55,45 @@
 .no-review {
   margin-top: 1rem;
   font-size: 1.5rem;
+}
+
+.review-images-frame {
+  border-top: 1px solid #dee2e6;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.review-images {
+  display: flex;
+}
+
+#review_images {
+  margin-left: 1rem;
+}
+
+.review-images-area {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.review-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.review-image-checkbox {
+  display: flex;
+  align-items: center;
+  p {
+    margin-left: .5rem;
+  }
+}
+
+.review-images-form {
+  font-size: 1.3rem;
+  margin-top: 1rem;
 }
