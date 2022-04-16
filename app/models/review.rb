@@ -3,6 +3,7 @@ class Review < ApplicationRecord
   GET_LATEST_REVIEW_MAX_NUMBER = 1
 
   belongs_to :user
+  has_many_attached :images
   validates :title, presence: true
   validates :comment, presence: true
   validates :user_id, presence: true
