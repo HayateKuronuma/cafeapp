@@ -1,0 +1,20 @@
+<script>
+  $("#star-rate<%= review.id %>").raty({
+    size: 36,
+    starOff: "star-off.png",
+    starOn: "star-on.png",
+    starHalf: "star-half.png",
+    half: true,
+    readOnly: true,
+    score: "<%= review.rate %>",
+  });
+  $("#re-star-<%= review.id %>").raty({
+    size: 36,
+    starOff: "star-off.png",
+    starOn: "star-on.png",
+    starHalf: "star-half.png",
+    scoreName: "review[rate]",
+    half: true,
+    score: "<%= review.rate %>"
+  });
+</script>

@@ -6,5 +6,6 @@ ja:
         comment: 本文
         shop_id: ショップID
         rate: 評価
+        images: 写真
       favorite:
         favorite: お気に入り

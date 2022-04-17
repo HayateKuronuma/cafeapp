@@ -54,11 +54,13 @@ https://wan-search.com
   - ホットペッパーグルメAPIのデータベースを利用
   - GOOGLE MAPに現在地とショップにピンを立てる  
 ![現在地周辺のショップ検索機能](docs/images/howto_search.gif)  
-- ユーザー登録、ログイン機能(devise)
-- お気に入り機能(Ajax)　　  
+- お気に入り機能(Ajax)※要ログイン　　  
 ![お気に入り機能](docs/images/howto_favorite.gif)  
-- レビュー機能(Ajax)  
+- レビュー機能(Ajax)※要ログイン  
+  - 星評価機能
+  - 画像投稿機能  
 ![レビュー機能](docs/images/howto_review.gif)  
+- ユーザー登録、ログイン機能(devise)
 - マイページ
   - アイコン画像、名前、メールアドレス、パスワード変更可能
   - 自分のお気に入り一覧(Ajax通信で削除可能)
@@ -76,4 +78,3 @@ https://wan-search.com
 - レスポンシブ対応
 - キーワード検索（ex.駅名で検索）
 - フォロー機能
-- レビューの画像投稿機能

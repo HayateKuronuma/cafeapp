@@ -56,6 +56,33 @@ RSpec.describe Review, type: :model do
     expect(review.errors[:rate]).to include("は1以上の値にしてください")
   end
 
+  it 'imagesの拡張子が対応していない時登録できないこと' do
+    review.images = [Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/test.pdf'))]
+    expect(review).to be_invalid
+    expect(review.errors[:images]).to include("が対応している画像データではありません")
+  end
+
+  it 'imagesのファイルサイズが5Mより大きい時、登録できないこと' do
+    review.images = [Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/test2m.jpg'))]
+    expect(review).to be_invalid
+    expect(review.errors[:images]).to include("のサイズは1MBまでです")
+  end
+
+  it 'imagesのファイルサイズが5Mより大きい時、登録できないこと' do
+    review.images = [Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/testimage.jpeg')),
+                     Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/testimage2.jpeg')),
+                     Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/testimage3.jpeg')),
+                     Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/testimage4.jpeg')),
+                     Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/testimage5.jpeg'))]
+    expect(review).to be_invalid
+    expect(review.errors[:images]).to include("は4枚までです")
+  end
+
+  it 'imagesが対応ファイルの時登録できること' do
+    review.images = [Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/testimage.jpeg'))]
+    expect(review).to be_valid
+  end
+
   describe "reviews_averageのテスト" do
     let(:review3) { create(:review, rate: 3) }
 

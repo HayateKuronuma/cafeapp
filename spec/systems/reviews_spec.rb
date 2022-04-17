@@ -64,6 +64,7 @@ RSpec.describe "Reviews", type: :system do
         fill_in 'review[title]', with: @title
         fill_in 'review[comment]', with: @comment
         find('#reviewModal').find('.star3').click
+        attach_file "review[images][]", "#{Rails.root}/spec/fixtures/images/testimage.jpeg"
         click_button '投稿する'
       end
 
@@ -75,6 +76,7 @@ RSpec.describe "Reviews", type: :system do
         expect(page).to have_content @title
         expect(page).to have_content @comment
         expect(page).to have_content user.name
+        expect(page).to have_selector("img[src$='testimage.jpeg']")
         within('.shop-review-frame') do
           expect(all("img[src$='star-on.png']").count).to eq 2
           expect(all("img[src$='star-half.png']").count).to eq 1
@@ -116,6 +118,7 @@ RSpec.describe "Reviews", type: :system do
           find("#reviewEditModal#{review.id}").find('.star5').click
           fill_in 'review[title]', with: @edit_title
           fill_in 'review[comment]', with: @edit_comment
+          attach_file "review[images][]", ["#{Rails.root}/spec/fixtures/images/testimage.jpeg", "#{Rails.root}/spec/fixtures/images/testimage2.jpeg"]
           click_button '更新する'
         end
 
@@ -130,6 +133,8 @@ RSpec.describe "Reviews", type: :system do
         it '更新した内容が表示されていること' do
           expect(page).to have_content @edit_title
           expect(page).to have_content @edit_comment
+          expect(page).to have_selector("img[src$='testimage.jpeg']")
+          expect(page).to have_selector("img[src$='testimage2.jpeg']")
           within("#rv-wrapper-#{review.id}") do
             expect(all("img[src$='star-on.png']").count).to eq 4
             expect(all("img[src$='star-half.png']").count).to eq 1
@@ -160,6 +165,7 @@ RSpec.describe "Reviews", type: :system do
           find("#reviewEditModal#{review.id}").find('.star5').click
           fill_in 'review[title]', with: @edit_title
           fill_in 'review[comment]', with: @edit_comment
+          attach_file "review[images][]", ["#{Rails.root}/spec/fixtures/images/testimage.jpeg", "#{Rails.root}/spec/fixtures/images/testimage2.jpeg"]
           click_button '更新する'
         end
 
@@ -174,6 +180,8 @@ RSpec.describe "Reviews", type: :system do
         it '更新した内容が表示されていること' do
           expect(page).to have_content @edit_title
           expect(page).to have_content @edit_comment
+          expect(page).to have_selector("img[src$='testimage.jpeg']")
+          expect(page).to have_selector("img[src$='testimage2.jpeg']")
           within("#rv-wrapper-#{review.id}") do
             expect(all("img[src$='star-on.png']").count).to eq 4
             expect(all("img[src$='star-half.png']").count).to eq 1
