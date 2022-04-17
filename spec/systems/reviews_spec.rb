@@ -141,23 +141,6 @@ RSpec.describe "Reviews", type: :system do
           end
         end
       end
-
-      context '写真の削除にチェックを入れた場合' do
-        before do
-          find('.edit-delete-btn').find('span').click
-          attach_file "review[images][]", ["#{Rails.root}/spec/fixtures/images/testimage.jpeg", "#{Rails.root}/spec/fixtures/images/testimage2.jpeg"]
-          click_button '更新する'
-          sleep 4.0
-          find('.edit-delete-btn').find('span').click
-          check "review_image_ids_#{review.images[1].id}"
-          click_button '更新する'
-        end
-
-        it '削除できること' do
-          sleep 0.5
-          expect(page).to_not have_selector("img[src$='testimage2.jpeg']")
-        end
-      end
     end
 
     context 'マイレビュー一覧からの場合', js: true do
@@ -203,23 +186,6 @@ RSpec.describe "Reviews", type: :system do
             expect(all("img[src$='star-on.png']").count).to eq 4
             expect(all("img[src$='star-half.png']").count).to eq 1
           end
-        end
-      end
-
-      context '写真の削除にチェックを入れた場合' do
-        before do
-          find('.edit-delete-btn').find('span').click
-          attach_file "review[images][]", ["#{Rails.root}/spec/fixtures/images/testimage.jpeg", "#{Rails.root}/spec/fixtures/images/testimage2.jpeg"]
-          click_button '更新する'
-          sleep 4.0
-          find('.edit-delete-btn').find('span').click
-          check "review_image_ids_#{review.images[1].id}"
-          click_button '更新する'
-        end
-
-        it '削除できること' do
-          sleep 0.5
-          expect(page).to_not have_selector("img[src$='testimage2.jpeg']")
         end
       end
     end
