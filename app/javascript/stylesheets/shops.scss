@@ -208,6 +208,7 @@
 
 .review-user-header, .review-shop-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid #ebe8d9;
 }
@@ -297,4 +298,13 @@
   margin-top: 3rem;
   font-size: 1.4rem;
   text-align: center;
+}
+
+@media (max-width: 576px) {
+  .shop-review-frame, .cuurent-review-frame {
+    padding: 5px;
+  }
+  .review-wrapper {
+    padding: 10px 10px;
+  }
 }

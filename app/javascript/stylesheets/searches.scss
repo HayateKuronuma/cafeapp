@@ -178,3 +178,27 @@
 .api-credit {
   margin-top: 1rem;
 }
+
+@media (max-width: 576px) {
+  .svg-inline--fa.fa-stack-2x {
+    width: auto;
+    height: 1em!important;
+  }
+  .shop-marker-num p {
+    top: -.5rem;
+    font-size: 1.5rem;
+  }
+  .card-img-wrapper .shop-img-lg {
+    max-width: 90px;
+    max-height: 90px;
+  }
+  .card-title {
+    font-size: 1.5rem!important;
+  }
+  .card-text {
+    font-size: 1rem!important;
+  }
+  .card-area-access {
+    flex-wrap: wrap;
+  }
+}
