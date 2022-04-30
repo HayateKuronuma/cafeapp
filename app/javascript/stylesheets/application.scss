@@ -138,28 +138,9 @@ header {
     padding: 5px;
     border-radius: 50px;
     -o-object-fit: cover;
-      object-fit: cover;
+       object-fit: cover;
   }
 }
-
-.header-nav-menu {
-  display: none;
-  list-style: none;
-  position: absolute;
-  top: 70px;
-  right: 10px;
-  margin-top: 0;
-  padding: 15px;
-  border: 3px solid #f6f8f9;
-  background-color: #ffffff;
-}
-
-.header-nav-menu li {
-  padding: 3px 5px;
-  font-size: 16px;
-  line-height: 30px;
-}
-
 
 .footer {
   width: 100%;
@@ -193,6 +174,107 @@ header {
   width: 220px;
 }
 
+#g-nav {
+  position: fixed;
+  top: 0;
+  right: -120%;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background: #faf4e6;
+  transition: all .6s;
+}
+
+#g-nav.panelactive {
+  right: 0;
+}
+
+#g-nav ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 1.4rem;
+}
+
+#g-nav li {
+  border-bottom: 1px solid #283726;
+  text-align: center;
+}
+
+#g-nav li a {
+  display: block;
+  padding: 20px 20px 0 20px;
+  color: #283726;
+  font-weight: bold;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.openbtn {
+  position: relative;
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.openbtn span {
+  display: inline-block;
+  position: absolute;
+  left: 14px;
+  width: 50%;
+  height: 3px;
+  border-radius: 2px;
+  background: #ffffff;
+  transition: all .4s;
+}
+
+.openbtn span:nth-of-type(1) {
+  top: 15px;
+}
+
+.openbtn span:nth-of-type(2) {
+  top: 23px;
+}
+
+.openbtn span:nth-of-type(3) {
+  top: 31px;
+}
+
+.openbtn.active-nav span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 50%;
+  background: #283726;
+}
+
+.openbtn.active-nav span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn.active-nav span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 50%;
+  background: #283726;
+}
+
+@media (max-width: 576px) {
+  .header-logo-img {
+    width: 160px;
+  }
+}
+
+@media (max-width: 875px) {
+  .right-nav-wrapper, .current-user-img {
+    display: none!important;
+  }
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -206,6 +288,12 @@ header {
   .header-logo-img {
     width: 300px;
     padding: 10px;
+  }
+}
+
+@media (min-width: 876px) {
+  .openbtn {
+    display: none;
   }
 }
 
