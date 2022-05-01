@@ -168,3 +168,40 @@
 .active {
   border-right: 6px solid #ffa35f;
 }
+
+
+
+@media (max-width: 576px) {
+  .user-favorite-wrapper, .user-edit-wrapper, .user-review-wrapper {
+    display: block;
+  }
+  .side-bar-wrapper {
+    border-right: none;
+    width: 100%;
+    ul {
+      display: flex;
+    }
+  }
+  .active {
+    border-right: none;
+    border-bottom: 4px solid #ffa35f;
+  }
+  .user-favorite-inner {
+    width: 95%;
+  }
+  .user-edit-frame {
+    display: block;
+  }
+  .user-edit-inner {
+    width: 100%;
+    .actions, h2 {
+      text-align: center;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  .user-review-inner {
+    width: 95%;
+  }
+}

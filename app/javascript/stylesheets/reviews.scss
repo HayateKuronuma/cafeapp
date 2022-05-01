@@ -99,3 +99,12 @@
   font-size: 1.3rem;
   margin-top: 1rem;
 }
+
+@media (max-width: 576px) {
+  .image-opacity {
+    width: 45%;
+    img {
+      width: 100%;
+    }
+  }
+}
