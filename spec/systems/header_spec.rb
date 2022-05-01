@@ -14,17 +14,23 @@ RSpec.describe "HeaderFooterLayouts", type: :system do
       end
 
       it 'お気に入り一覧をクリックすると/favoritesに遷移すること' do
-        click_link 'お気に入り一覧'
+        within('.right-nav-wrapper') do
+          click_link 'お気に入り一覧'
+        end
         expect(page.current_path).to eq favorites_path
       end
 
       it 'マイページをクリックすると/users/editに遷移すること' do
-        click_link 'マイページ'
+        within('.right-nav-wrapper') do
+          click_link 'マイページ'
+        end
         expect(page.current_path).to eq edit_user_registration_path
       end
 
       it 'ログアウトをクリックすると/users/sign_inに遷移すること' do
-        click_link 'ログアウト'
+        within('.right-nav-wrapper') do
+          click_link 'ログアウト'
+        end
         expect(page.current_path).to eq new_user_session_path
       end
     end
@@ -40,12 +46,16 @@ RSpec.describe "HeaderFooterLayouts", type: :system do
       end
 
       it 'ログインをクリックすると/users/sign_inに遷移すること'  do
-        click_link 'ログイン'
+        within('.right-nav-wrapper') do
+          click_link 'ログイン'
+        end
         expect(page.current_path).to eq new_user_session_path
       end
 
       it '登録するをクリックすると/users/sign_upに遷移すること' do
-        click_link '登録する'
+        within('.right-nav-wrapper') do
+          click_link '登録する'
+        end
         expect(page.current_path).to eq new_user_registration_path
       end
     end
