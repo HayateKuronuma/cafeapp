@@ -284,7 +284,9 @@ RSpec.describe "Reviews", type: :system do
     end
 
     it 'サイドバーのマイレビュー一覧に、activeクラスが適応されていること' do
-      expect(find('ul').all("a")[2].find('li')[:class]).to include 'active'
+      within('.side-bar-wrapper') do
+        expect(find('ul').all("a")[2].find('li')[:class]).to include 'active'
+      end
     end
 
     it 'レビュー一覧が表示されていること' do

@@ -168,3 +168,58 @@
 .active {
   border-right: 6px solid #ffa35f;
 }
+
+
+
+@media (max-width: 576px) {
+  .user-favorite-wrapper, .user-edit-wrapper, .user-review-wrapper {
+    display: block;
+  }
+  .side-bar-wrapper {
+    width: 100%;
+    border-right: none;
+    ul {
+      display: flex;
+    }
+  }
+  .active {
+    border-right: none;
+    border-bottom: 4px solid #ffa35f;
+  }
+  .user-favorite-inner {
+    width: 95%;
+  }
+  .user-edit-frame {
+    display: block;
+  }
+  .user-edit-inner {
+    width: 95%;
+    margin: 5rem auto 0 auto;
+    .actions, h2 {
+      text-align: center;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  .user-review-inner {
+    width: 95%;
+    h1 {
+      text-align: center;
+    }
+  }
+  .user-main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .user-main-wrapper .center-or {
+    display: none;
+  }
+  .form-wrapper, .guest-login-wrapper {
+    width: 80%;
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}

@@ -110,7 +110,9 @@ RSpec.describe "Users", type: :system do
       end
 
       it 'サイドバーのアカウント情報に、activeクラスが適応されていること' do
-        expect(find('ul').all("a")[0].find('li')[:class]).to include 'active'
+        within('.side-bar-wrapper') do
+          expect(find('ul').all("a")[0].find('li')[:class]).to include 'active'
+        end
       end
 
       context '無効な値の場合' do
@@ -188,7 +190,9 @@ RSpec.describe "Users", type: :system do
     let(:user) { create(:user) }
     before do
       log_in user
-      click_link 'ログアウト'
+      within('.right-nav-wrapper') do
+        click_link 'ログアウト'
+      end
     end
 
     it 'ヘッダーがログアウト表示になること' do
