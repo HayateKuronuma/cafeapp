@@ -193,7 +193,8 @@
     display: block;
   }
   .user-edit-inner {
-    width: 100%;
+    width: 95%;
+    margin: 5rem auto 0 auto;
     .actions, h2 {
       text-align: center;
     }
@@ -203,6 +204,9 @@
   }
   .user-review-inner {
     width: 95%;
+    h1 {
+      text-align: center;
+    }
   }
   .user-main-wrapper {
     display: flex;
