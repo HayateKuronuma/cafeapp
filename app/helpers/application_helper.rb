@@ -1,5 +1,5 @@
 module ApplicationHelper
-  BASE_TITLE = "CAFE APP".freeze
+  BASE_TITLE = "WAN SEARCH".freeze
 
   def full_title(page_title: '')
     if page_title.blank?
