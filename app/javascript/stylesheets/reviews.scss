@@ -1,6 +1,6 @@
 .attached-images-title {
-  border-left: 0.5rem solid #866c34;
-  padding-left: 0.5rem;
+  padding-left: .5rem;
+  border-left: .5rem solid #866c34;
 }
 
 .cuurent-review-frame {
@@ -15,13 +15,13 @@
 }
 
 .image-opacity {
-  background: #faf4e6;
   margin-left: 1rem;
+  background: #faf4e6;
   img {
     opacity: 1;
     transition: .3s;
     &:hover {
-      opacity: 0.6;
+      opacity: .6;
     }
   }
 }
@@ -59,9 +59,9 @@
 }
 
 .review-images-frame {
-  border-top: 1px solid #dee2e6;
   margin-top: 1rem;
   padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
   p {
     font-size: 1.5rem;
   }
@@ -96,8 +96,8 @@
 }
 
 .review-images-form {
-  font-size: 1.3rem;
   margin-top: 1rem;
+  font-size: 1.3rem;
 }
 
 @media (max-width: 576px) {
