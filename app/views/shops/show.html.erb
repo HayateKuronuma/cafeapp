@@ -7,17 +7,20 @@
       <div id="favorite-error"></div>
       <div class="shop-header-contents">
         <div class="shop-header-contents-inner">
-          <div class="logo-title-wrapper">
-            <div class="shop-header-logo">
-              <%= image_tag @shop["logo_image"], class: "logo-image", alt: "#{@shop["name"]}のロゴ" %>
-            </div>
-            <div class="shoptitle">
-              <span class="title-crown"><%= @shop["genre"]["catch"] %></span>
-              <h3 class="shop-name"><%= @shop["name"] %></h3>
-              <div id="shop-avg-rate">
-                <%= render "shared/star_rate", shop_id: @shop_id, reviews: @reviews %>
+          <div class="img-provided-wrapper">
+            <div class="logo-title-wrapper">
+              <div class="shop-header-logo">
+                <%= image_tag @shop["logo_image"], class: "logo-image", alt: "#{@shop["name"]}のロゴ" %>
+              </div>
+              <div class="shoptitle">
+                <span class="title-crown"><%= @shop["genre"]["catch"] %></span>
+                <h3 class="shop-name"><%= @shop["name"] %></h3>
+                <div id="shop-avg-rate">
+                  <%= render "shared/star_rate", shop_id: @shop_id, reviews: @reviews %>
+                </div>
               </div>
             </div>
+            <p class="text-muted img-provided">画像提供:ホットペッパー グルメ</p>
           </div>
           <div class="shop-headerbtn-wrapper">
             <% if user_signed_in? %>
@@ -30,7 +33,6 @@
             <%= link_to "HOT PEPPERで見る", @shop["urls"]["pc"], class: "btn btn-primary hotpepper-btn" %>
           </div>
         </div>
-        <p class="text-muted img-provided">画像提供:ホットペッパー グルメ</p>
         <div class="shop-header-info">
           <ul class="shop-header-infoinner">
             <li>
