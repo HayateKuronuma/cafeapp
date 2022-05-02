@@ -34,15 +34,18 @@
   width: 100%;
 }
 
+.img-provided-wrapper {
+  flex-grow: 1;
+  border-bottom: 1px solid #e0dccc;
+}
+
 .logo-title-wrapper {
   display: flex;
-  flex-grow: 1;
   padding: 13px 0;
-  border-bottom: 1px solid #e0dccc;
   .shop-header-logo {
     margin-right: 15px;
     .logo-image {
-      height: 100%;
+      width: 95px;
     }
   }
   .shoptitle {
@@ -315,5 +318,20 @@
     width: 50px;
     height: 50px;
     margin: 0 0;
+  }
+  .shop-header-contents-inner {
+    display: block;
+  }
+  .shop-name {
+    font-size: 1.7rem!important;
+  }
+  .logo-image {
+    height: 90px!important;
+  }
+  #shop-avg-rate img {
+    width: 20px;
+  }
+  .common-fav-btn {
+    width: 100%!important;
   }
 }
